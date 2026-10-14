@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local reference material, not part of the site
+/design inspirations/
+/public/new/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light, warm, paper-like palette matching the Attention Factory reference:
+     cream background, near-black text, saturated orange accent. */
+  --ink-950: #faf8f3;
+  --ink-900: #f3f0e9;
+  --ink-800: #ebe7dd;
+  --ink-700: #ded8ca;
+  --ink-600: #c7bfab;
+  --line: rgba(20, 18, 15, 0.1);
+  --line-soft: rgba(20, 18, 15, 0.06);
+  --paper: #16140f;
+  --paper-dim: #625d53;
+  --ember-400: #ff7a3d;
+  --ember-500: #f25c19;
+  --ember-600: #d6470c;
+  --ember-glow: rgba(242, 92, 25, 0.18);
+
+  --background: var(--ink-950);
+  --foreground: var(--paper);
 }
 
 @theme inline {
+  --color-ink-950: var(--ink-950);
+  --color-ink-900: var(--ink-900);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+  --color-ink-600: var(--ink-600);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-ember-400: var(--ember-400);
+  --color-ember-500: var(--ember-500);
+  --color-ember-600: var(--ember-600);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --animate-marquee: marquee 26s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
   }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--ember-500);
+  color: var(--ink-950);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.mask-fade-x {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
 }
