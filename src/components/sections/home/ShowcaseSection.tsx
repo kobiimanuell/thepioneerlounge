@@ -58,7 +58,14 @@ export function ShowcaseSection() {
             {panels.map((p, i) => (
               <button
                 key={p.key}
-                onClick={() => setActive(i)}
+                onClick={(e) => {
+                  setActive(i);
+                  e.currentTarget.scrollIntoView({
+                    behavior: "smooth",
+                    inline: "center",
+                    block: "nearest",
+                  });
+                }}
                 className="relative shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium sm:px-5"
               >
                 {active === i && (
