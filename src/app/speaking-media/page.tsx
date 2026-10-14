@@ -10,12 +10,13 @@ import { IconGrid } from "@/components/sections/IconGrid";
 import { IconGlyph } from "@/components/ui/IconGlyph";
 import { CTASection } from "@/components/sections/CTASection";
 import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Speaking & Media",
-  description:
-    "Book The Pioneer Lounge to speak on AI adoption, enablement, and building an AI-fluent culture.",
-};
+export const metadata: Metadata = pageMetadata(
+  "/speaking-media",
+  "Speaking & Media",
+  "Book The Pioneer Lounge to speak on AI adoption, enablement, and building an AI-fluent culture."
+);
 
 const topics = [
   {

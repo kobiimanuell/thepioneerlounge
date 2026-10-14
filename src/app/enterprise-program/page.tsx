@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { pageMetadata } from "@/lib/metadata";
 import { IconGlyph } from "@/components/ui/IconGlyph";
 import { Users2, BarChart3, MessagesSquare } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
@@ -12,11 +13,11 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
-export const metadata: Metadata = {
-  title: "Enterprise Program",
-  description:
-    "A structured, team-wide AI training program for up to 100 employees, with community access and built-in measurement.",
-};
+export const metadata: Metadata = pageMetadata(
+  "/enterprise-program",
+  "Enterprise Program",
+  "A structured, team-wide AI training program for up to 100 employees, with community access and built-in measurement."
+);
 
 export default function EnterpriseProgramPage() {
   return (

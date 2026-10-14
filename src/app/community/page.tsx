@@ -10,12 +10,13 @@ import { IconGrid } from "@/components/sections/IconGrid";
 import { IconGlyph } from "@/components/ui/IconGlyph";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Community",
-  description:
-    "Join The Pioneer Lounge community, free in Facebook and Slack, or go deeper with paid membership.",
-};
+export const metadata: Metadata = pageMetadata(
+  "/community",
+  "Community",
+  "Join The Pioneer Lounge community, free in Facebook and Slack, or go deeper with paid membership."
+);
 
 const paidBenefits = [
   {

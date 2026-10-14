@@ -1,11 +1,13 @@
 export const site = {
   name: "The Pioneer Lounge",
   shortName: "TPL",
+  // TODO: swap to the production domain once it's live, e.g. https://thepioneerlounge.com
+  url: "https://thepioneerlounge.vercel.app",
   tagline: "AI enablement for teams that intend to lead.",
   description:
     "The Pioneer Lounge delivers consultations, workshops, AI hack sprints, and enterprise training programs that turn AI curiosity into shipped work.",
   email: "hello@thepioneerlounge.com",
-  calendarUrl: "https://cal.com/thepioneerlounge/discovery-call",
+  calendarUrl: "https://calendly.com/osauzomaureen/consultations",
 };
 
 export type NavItem = {

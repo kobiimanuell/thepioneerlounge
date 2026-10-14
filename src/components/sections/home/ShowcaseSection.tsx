@@ -54,19 +54,30 @@ export function ShowcaseSection() {
         </div>
 
         <Reveal delay={0.1} className="mt-12 flex justify-center">
-          <div className="inline-flex flex-wrap items-center gap-2 rounded-full border border-line bg-ink-900/60 p-1.5">
+          <div className="no-scrollbar flex max-w-full items-center gap-2 overflow-x-auto rounded-full border border-line bg-ink-900/60 p-1.5">
             {panels.map((p, i) => (
               <button
                 key={p.key}
                 onClick={() => setActive(i)}
-                className={clsx(
-                  "rounded-full px-5 py-2 text-sm font-medium transition-colors",
-                  active === i
-                    ? "bg-paper text-ink-950"
-                    : "text-paper-dim hover:text-paper"
-                )}
+                className="relative shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium sm:px-5"
               >
-                {p.label}
+                {active === i && (
+                  <motion.span
+                    layoutId="showcase-tab-pill"
+                    className="absolute inset-0 rounded-full bg-paper"
+                    transition={{ type: "spring", duration: 0.5, bounce: 0.2 }}
+                  />
+                )}
+                <span
+                  className={clsx(
+                    "relative z-10 transition-colors",
+                    active === i
+                      ? "text-ink-950"
+                      : "text-paper-dim hover:text-paper"
+                  )}
+                >
+                  {p.label}
+                </span>
               </button>
             ))}
           </div>

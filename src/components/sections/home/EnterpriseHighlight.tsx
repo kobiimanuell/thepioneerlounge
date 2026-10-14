@@ -50,7 +50,8 @@ export function EnterpriseHighlight() {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button href="/enterprise-program" size="lg">
-                Explore the Enterprise Program
+                <span className="sm:hidden">Explore</span>
+                <span className="hidden sm:inline">Explore the Enterprise Program</span>
               </Button>
             </div>
           </div>

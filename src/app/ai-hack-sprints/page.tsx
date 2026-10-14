@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { pageMetadata } from "@/lib/metadata";
 import { IconGlyph } from "@/components/ui/IconGlyph";
 import { Rocket, Users2, Building2, PackageCheck, Gauge, Flag } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
@@ -12,11 +13,11 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
-export const metadata: Metadata = {
-  title: "AI Hack Sprints",
-  description:
-    "A focused, high-energy week that takes a team from idea to a working AI product they actually shipped.",
-};
+export const metadata: Metadata = pageMetadata(
+  "/ai-hack-sprints",
+  "AI Hack Sprints",
+  "A focused, high-energy week that takes a team from idea to a working AI product they actually shipped."
+);
 
 export default function AIHackSprintsPage() {
   return (

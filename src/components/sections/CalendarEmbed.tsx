@@ -1,30 +1,15 @@
-import { CalendarDays } from "lucide-react";
+import { site } from "@/lib/site";
 
 export function CalendarEmbed() {
-  const calUrl = process.env.NEXT_PUBLIC_CAL_URL;
-
-  if (!calUrl) {
-    return (
-      <div className="flex flex-col items-center gap-3 rounded-2xl border border-dashed border-line bg-ink-900/40 px-6 py-14 text-center">
-        <CalendarDays className="size-7 text-paper-dim/50" />
-        <p className="max-w-xs text-sm text-paper-dim/70">
-          Calendar booking will appear here once connected to Cal.com or
-          Calendly. Set{" "}
-          <code className="rounded bg-ink-800 px-1.5 py-0.5 text-xs">
-            NEXT_PUBLIC_CAL_URL
-          </code>{" "}
-          to enable it.
-        </p>
-      </div>
-    );
-  }
+  const embedUrl = `${site.calendarUrl}?background_color=16140f&text_color=faf8f3&primary_color=f25c19&hide_gdpr_banner=1`;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-line">
+    <div className="overflow-hidden rounded-2xl border border-line bg-ink-900">
       <iframe
-        src={calUrl}
-        title="Book a discovery call"
+        src={embedUrl}
+        title="Book a call with The Pioneer Lounge"
         className="h-[720px] w-full"
+        loading="lazy"
       />
     </div>
   );

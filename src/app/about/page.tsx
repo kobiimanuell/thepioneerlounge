@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IconGlyph } from "@/components/ui/IconGlyph";
 import Image from "next/image";
+import { pageMetadata } from "@/lib/metadata";
 import { Compass, Heart, ShieldCheck, Flame, ImageUp } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -9,11 +10,11 @@ import { Reveal } from "@/components/ui/Reveal";
 import { IconGrid } from "@/components/sections/IconGrid";
 import { CTASection } from "@/components/sections/CTASection";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "The story, mission, and values behind The Pioneer Lounge.",
-};
+export const metadata: Metadata = pageMetadata(
+  "/about",
+  "About",
+  "The story, mission, and values behind The Pioneer Lounge."
+);
 
 const values = [
   {

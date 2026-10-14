@@ -3,22 +3,23 @@ import Image from "next/image";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { pageMetadata } from "@/lib/metadata";
 import { BookingTabs } from "@/components/sections/BookingTabs";
 import { FAQSection } from "@/components/sections/FAQSection";
 
-export const metadata: Metadata = {
-  title: "Book a Call",
-  description:
-    "Book a discovery call or request a written quote from The Pioneer Lounge.",
-};
+export const metadata: Metadata = pageMetadata(
+  "/book-a-call",
+  "Book a Call",
+  "Book a free 30-minute discovery call with The Pioneer Lounge to scope the right AI engagement for your team."
+);
 
 export default function BookACallPage() {
   return (
     <>
       <PageHero
         eyebrow="Get started"
-        title="Book a call, or get a quote in writing."
-        description="Two ways to start. Pick whichever fits how your organization moves."
+        title="Book a free discovery call."
+        description="30 minutes to understand your context and map the right engagement, no forms, no waiting on an email back."
       />
 
       <section className="border-b border-line py-16 lg:py-20">
@@ -49,18 +50,18 @@ export default function BookACallPage() {
               "A 30-minute conversation to understand your context and goals, so we can recommend the right engagement: consultation, workshop, hack sprint, or the Enterprise Program.",
           },
           {
-            question: "How fast do I hear back after requesting a quote?",
-            answer:
-              "Within two business days. For the Enterprise Program, we'll typically schedule a short briefing call before sending a final proposal.",
-          },
-          {
             question: "Is the discovery call free?",
             answer: "Yes, always. No cost and no obligation.",
           },
           {
-            question: "Can I request a quote without booking a call first?",
+            question: "Can I get a written quote from this call?",
             answer:
-              "Yes. Use the Request a Quote tab above and share as much detail as you can; we'll follow up directly.",
+              "Yes. Mention it on the call and we'll follow up with a written proposal, usually within two business days.",
+          },
+          {
+            question: "What if I need to reschedule?",
+            answer:
+              "Use the reschedule or cancel link in your confirmation email, no need to email us directly.",
           },
         ]}
       />

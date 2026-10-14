@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { pageMetadata } from "@/lib/metadata";
 import { IconGlyph } from "@/components/ui/IconGlyph";
 import { Users2, Building, GraduationCap, Sparkles, Wrench, TrendingUp } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
@@ -12,11 +13,11 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
-export const metadata: Metadata = {
-  title: "Workshops",
-  description:
-    "Hands-on sessions that build real AI fluency across your team, from first prompts to production workflows.",
-};
+export const metadata: Metadata = pageMetadata(
+  "/workshops",
+  "Workshops",
+  "Hands-on sessions that build real AI fluency across your team, from first prompts to production workflows."
+);
 
 export default function WorkshopsPage() {
   return (

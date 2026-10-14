@@ -10,12 +10,13 @@ import { Button } from "@/components/ui/Button";
 import { IconGlyph } from "@/components/ui/IconGlyph";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Consultations",
-  description:
-    "Strategic, 1:1 AI guidance for leaders deciding where AI fits in their roadmap, and where it doesn't.",
-};
+export const metadata: Metadata = pageMetadata(
+  "/consultations",
+  "Consultations",
+  "Strategic, 1:1 AI guidance for leaders deciding where AI fits in their roadmap, and where it doesn't."
+);
 
 export default function ConsultationsPage() {
   return (
