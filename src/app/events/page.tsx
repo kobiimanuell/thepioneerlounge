@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { connection } from "next/server";
 import Image from "next/image";
 import { MapPin, Calendar } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
@@ -17,18 +19,15 @@ export const metadata: Metadata = pageMetadata(
   "Upcoming talks, workshops, and sprints from The Pioneer Lounge, plus photos from past events."
 );
 
-export default function EventsPage() {
+// Upcoming/past bucketing depends on the current date, which can't be
+// known at build time, so this part of the page renders per request.
+async function EventLists() {
+  await connection();
   const upcoming = getUpcomingEvents();
   const past = getPastEvents();
 
   return (
     <>
-      <PageHero
-        eyebrow="Events"
-        title="Where we show up, and where we've already been."
-        description="Talks, sprints, and sessions from The Pioneer Lounge and the people we build alongside."
-      />
-
       <section className="border-b border-line py-24 lg:py-32">
         <Container>
           <SectionHeading
@@ -143,6 +142,22 @@ export default function EventsPage() {
           </div>
         </Container>
       </section>
+    </>
+  );
+}
+
+export default function EventsPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Events"
+        title="Where we show up, and where we've already been."
+        description="Talks, sprints, and sessions from The Pioneer Lounge and the people we build alongside."
+      />
+
+      <Suspense fallback={null}>
+        <EventLists />
+      </Suspense>
 
       <CTASection
         title="Want us to speak at or sponsor your event?"

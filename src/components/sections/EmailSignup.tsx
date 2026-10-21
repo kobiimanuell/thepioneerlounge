@@ -13,9 +13,9 @@ const benefits = [
 export function EmailSignup({ compact = false }: { compact?: boolean }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
-    "idle"
-  );
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -39,11 +39,16 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
         className={clsx(
           "flex items-center gap-3 border border-ember-500/30 bg-ember-500/10 p-5",
           !compact && "lg:rounded-2xl",
-          compact && "rounded-2xl text-white"
+          compact && "rounded-2xl text-white",
         )}
       >
         <Check className="size-5 shrink-0 text-ember-500" strokeWidth={2.5} />
-        <p className={clsx("text-sm", compact ? "text-white/80" : "text-paper-dim")}>
+        <p
+          className={clsx(
+            "text-sm",
+            compact ? "text-white/80" : "text-paper-dim",
+          )}
+        >
           You&apos;re in. Check your inbox for the AI Readiness Checklist.
         </p>
       </div>
@@ -55,13 +60,13 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
       className={clsx(
         compact
           ? "text-white"
-          : "bg-ink-900 p-8 text-paper lg:rounded-3xl lg:p-10"
+          : "bg-ink-900 p-8 text-paper lg:rounded-3xl lg:p-10",
       )}
     >
       <p
         className={clsx(
           "font-mono text-xs uppercase tracking-[0.2em]",
-          compact ? "text-white/50" : "text-ember-500"
+          compact ? "text-white/50" : "text-ember-500",
         )}
       >
         Free download
@@ -69,7 +74,7 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
       <h3
         className={clsx(
           "mt-3 font-semibold leading-tight",
-          compact ? "text-xl text-white" : "text-2xl text-paper"
+          compact ? "text-xl text-white" : "text-2xl text-paper",
         )}
       >
         Get the AI Readiness Checklist
@@ -77,11 +82,11 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
       <p
         className={clsx(
           "mt-2 text-sm leading-relaxed",
-          compact ? "text-white/60" : "text-paper-dim"
+          compact ? "text-white/60" : "text-paper-dim",
         )}
       >
-        A short, practical checklist to see where your team actually stands
-        with AI, before you spend a dollar on tools or training.
+        A short, practical checklist to see where your team actually stands with
+        AI, before you spend a dollar on tools or training.
       </p>
 
       {!compact && (
@@ -103,12 +108,9 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
 
       <form
         onSubmit={handleSubmit}
-        className={clsx(
-          "mt-6 flex flex-col gap-3",
-          !compact && "sm:flex-row sm:items-start"
-        )}
+        className={clsx("mt-6 flex flex-col gap-3")}
       >
-        <div className={clsx("flex flex-1 flex-col gap-3", !compact && "sm:flex-row")}>
+        <div className={clsx("flex flex-1 flex-col gap-3")}>
           <input
             type="text"
             required
@@ -119,7 +121,7 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
               "w-full rounded-full border px-4 py-2.5 text-sm outline-none transition-colors",
               compact
                 ? "border-white/15 bg-white/5 text-white placeholder:text-white/40 focus:border-ember-400"
-                : "border-line bg-ink-950 text-paper placeholder:text-paper-dim/50 focus:border-ember-500/60"
+                : "border-line bg-ink-950 text-paper placeholder:text-paper-dim/50 focus:border-ember-500/60",
             )}
           />
           <input
@@ -132,7 +134,7 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
               "w-full rounded-full border px-4 py-2.5 text-sm outline-none transition-colors",
               compact
                 ? "border-white/15 bg-white/5 text-white placeholder:text-white/40 focus:border-ember-400"
-                : "border-line bg-ink-950 text-paper placeholder:text-paper-dim/50 focus:border-ember-500/60"
+                : "border-line bg-ink-950 text-paper placeholder:text-paper-dim/50 focus:border-ember-500/60",
             )}
           />
         </div>
