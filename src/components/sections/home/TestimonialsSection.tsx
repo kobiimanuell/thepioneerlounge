@@ -3,7 +3,25 @@ import { Container } from "../../ui/Container";
 import { SectionHeading } from "../../ui/SectionHeading";
 import { Reveal } from "../../ui/Reveal";
 
-const slots = [1, 2, 3];
+const testimonials = [
+  {
+    quote:
+      "The Pioneer Lounge's events were always very interactive and the entire team made sure everyone feels included even if participants don't have much knowledge on the topic. The entire vibe of the event was very warm and every participant was appreciated. Of course the snacks and good music were a cherry on top!",
+    name: "Kashvi Jain",
+    role: "Campus Coordinator, BrainStation",
+  },
+  {
+    quote: "The students absolutely loved the usecase and asked SO MANY questions!",
+    name: "Sayli",
+    role: "Clay",
+  },
+  {
+    quote:
+      "It was great to see the creativity attendees brought to their AI projects and how they presented the vision and ideas behind them. I also enjoyed seeing attendees having the opportunity to connect and collaborate with like-minded individuals in teams.",
+    name: "Mahdiyar Saber",
+    role: "AI-Native GTM, Origin",
+  },
+];
 
 export function TestimonialsSection() {
   return (
@@ -12,20 +30,22 @@ export function TestimonialsSection() {
         <SectionHeading
           eyebrow="What people say"
           title="We are spoken of kindly."
-          description="Testimonials from consultations, workshops, and hack sprints will land here as engagements wrap."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-10 border-t border-line pt-10 md:grid-cols-3 md:gap-8">
-          {slots.map((slot, i) => (
-            <Reveal key={slot} delay={i * 0.06} className="flex flex-col gap-5">
+          {testimonials.map((t, i) => (
+            <Reveal
+              key={t.name}
+              delay={i * 0.06}
+              className="flex flex-col gap-5"
+            >
               <Quote className="size-5 text-ember-500/60" />
-              <p className="flex-1 text-sm leading-relaxed text-paper-dim/70">
-                Coming soon. This spot is reserved for a client or
-                participant quote.
+              <p className="flex-1 text-sm leading-relaxed text-paper-dim">
+                {t.quote}
               </p>
               <div>
-                <div className="h-2.5 w-24 rounded-full bg-ink-800" />
-                <div className="mt-2 h-2 w-32 rounded-full bg-ink-800/70" />
+                <div className="text-sm font-medium text-paper">{t.name}</div>
+                <div className="mt-0.5 text-xs text-paper-dim/70">{t.role}</div>
               </div>
             </Reveal>
           ))}
