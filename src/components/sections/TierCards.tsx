@@ -74,7 +74,7 @@ export function TierCards({
               )}
             >
               {(tier.badge || tier.featured) && (
-                <span className="absolute -top-3 left-8 rounded-full bg-ink-950 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-paper">
+                <span className="absolute -top-3 left-8 rounded-full bg-paper px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-950">
                   {tier.badge ?? "Most popular"}
                 </span>
               )}
