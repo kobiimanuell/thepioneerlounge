@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/consultations", priority: 0.9, changeFrequency: "monthly" },
     { path: "/workshops", priority: 0.9, changeFrequency: "monthly" },
     { path: "/ai-hack-sprints", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/ship-one-thing", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/fractional-ai-lead", priority: 0.9, changeFrequency: "monthly" },
     { path: "/enterprise-program", priority: 0.9, changeFrequency: "monthly" },
     { path: "/speaking-media", priority: 0.7, changeFrequency: "monthly" },
     { path: "/events", priority: 0.7, changeFrequency: "weekly" },

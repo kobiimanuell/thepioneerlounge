@@ -25,7 +25,7 @@ export default function WorkshopsPage() {
       <PageHero
         eyebrow="Workshops"
         title="Fluency, built by doing, not by watching a slide deck."
-        description="Live, hands-on sessions where your team leaves having actually built something with AI, not just heard about it."
+        description="Live, hands-on sessions where your team leaves having actually built something with AI, not just heard about it. Half-day sessions from $3,500, full multi-session programs from $9,500."
         cta={
           <>
             <Button href="/book-a-call" size="lg">
@@ -81,7 +81,7 @@ export default function WorkshopsPage() {
         <Steps
           eyebrow="Format"
           title="One session, built around your real work."
-          description="Workshops run half-day or full-day, in person or remote, capped to keep every participant hands-on."
+          description="Half-day from $3,500, full programs from $9,500, in person or remote, capped to keep every participant hands-on. Formats include everything from prompting fundamentals to specialized sessions like AI Video for Teams."
           dark
           steps={[
             {
@@ -161,7 +161,7 @@ export default function WorkshopsPage() {
           {
             question: "What's the difference between a workshop and an AI Hack Sprint?",
             answer:
-              "A workshop is a single focused session (half or full day) building fluency. An AI Hack Sprint is a multi-day, project-based engagement where a team ships a working AI product from scratch.",
+              "A workshop builds fluency across a team. An AI Hack Sprint is a focused, half-day to full-day engagement where a smaller team ships a working AI prototype from scratch.",
           },
         ]}
       />

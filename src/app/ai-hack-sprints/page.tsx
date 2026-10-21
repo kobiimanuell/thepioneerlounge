@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { pageMetadata } from "@/lib/metadata";
 import { IconGlyph } from "@/components/ui/IconGlyph";
-import { Rocket, Users2, Building2, PackageCheck, Gauge, Flag } from "lucide-react";
+import {
+  Rocket,
+  Users2,
+  Building2,
+  PackageCheck,
+  Gauge,
+  Flag,
+} from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
 import { IconGrid } from "@/components/sections/IconGrid";
 import { Steps } from "@/components/sections/Steps";
@@ -16,7 +23,7 @@ import { Reveal } from "@/components/ui/Reveal";
 export const metadata: Metadata = pageMetadata(
   "/ai-hack-sprints",
   "AI Hack Sprints",
-  "A focused, high-energy week that takes a team from idea to a working AI product they actually shipped."
+  "A focused, high-energy sprint, half a day to a full day, that takes a team of up to 15 from idea to a working AI prototype. From $8,000."
 );
 
 export default function AIHackSprintsPage() {
@@ -24,15 +31,15 @@ export default function AIHackSprintsPage() {
     <>
       <PageHero
         eyebrow="AI Hack Sprints"
-        title="One week. One real product. Zero slideware."
-        description="A focused sprint that takes your team from a rough idea to a working AI product, built, tested, and demoed by the people who'll actually use it."
+        title="One day. One real prototype. Zero slideware."
+        description="A focused sprint, half a day to a full day, that takes your team of up to 15 from a rough idea to a working AI prototype, built and demoed by the people who'll actually use it. From $8,000."
         cta={
           <>
             <Button href="/book-a-call" size="lg">
               Book a discovery call
             </Button>
             <Button href="#structure" variant="outlineLight" size="lg">
-              See the sprint week
+              See the format
             </Button>
           </>
         }
@@ -58,7 +65,7 @@ export default function AIHackSprintsPage() {
             icon: <IconGlyph icon={Building2} />,
             title: "Enterprise teams, off-cycle",
             description:
-              "A dedicated week to break out of quarterly planning and actually ship something new.",
+              "A dedicated day to break out of quarterly planning and actually ship something new.",
           },
         ]}
       />
@@ -79,52 +86,65 @@ export default function AIHackSprintsPage() {
 
       <div id="structure">
         <Steps
-          eyebrow="Sprint week structure"
-          title="Five days, each with a clear job to do."
-          description="The sprint is tightly structured so momentum never stalls, and every day ends with something concrete."
+          eyebrow="Format"
+          title="One format, built for speed."
+          description="Half a day to a full day, for a team of up to 15, from $8,000. The sprint is tightly structured so momentum never stalls."
           dark
           steps={[
             {
-              label: "Day 1",
+              label: "Start",
               title: "Define & scope",
               description:
-                "Lock the problem, the user, and a scoped version of the product that can realistically ship by Friday.",
+                "Lock the problem, the user, and a scoped version of the prototype that can realistically ship today.",
             },
             {
-              label: "Day 2",
-              title: "Architect & prototype",
+              label: "Build",
+              title: "Prototype, hands-on",
               description:
-                "Technical approach locked, first working scaffold in place, core AI workflow wired up.",
+                "Heads-down build time with facilitators embedded, focused on one core AI workflow end to end.",
             },
             {
-              label: "Day 3",
-              title: "Build",
+              label: "Finish",
+              title: "Demo & next steps",
               description:
-                "Heads-down build time with hands-on support, focused on the core user flow end to end.",
-            },
-            {
-              label: "Day 4",
-              title: "Test & refine",
-              description:
-                "Real users or stakeholders try it; the team fixes what's broken and cuts what isn't essential.",
-            },
-            {
-              label: "Day 5",
-              title: "Demo & roadmap",
-              description:
-                "A live demo to stakeholders, plus a clear-eyed roadmap for what it takes to take this to production.",
+                "A live demo to stakeholders, plus a clear-eyed read on what it takes to take this further.",
             },
           ]}
         />
       </div>
 
+      <section className="border-b border-line bg-ink-900/40 py-14">
+        <Container>
+          <Reveal className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h3 className="text-lg font-semibold text-paper">
+                Ready to go further?
+              </h3>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-paper-dim">
+                Your sprint fee is credited toward Ship One Thing if you go
+                ahead within 30 days, so a strong prototype can turn straight
+                into a shipped product.
+              </p>
+            </div>
+            <Button
+              href="/ship-one-thing"
+              variant="outline"
+              className="shrink-0"
+              showArrow
+            >
+              See Ship One Thing
+            </Button>
+          </Reveal>
+        </Container>
+      </section>
+
       <IconGrid
         eyebrow="Outcomes"
-        title="You leave with a product, not a prototype deck."
+        title="You leave with a prototype, not a slide deck."
         items={[
           {
             icon: <IconGlyph icon={PackageCheck} />,
-            title: "A working AI product",
+            title: "A working AI prototype",
             description:
               "Demoed live, used by real stakeholders, not a mockup described in slides.",
           },
@@ -136,9 +156,9 @@ export default function AIHackSprintsPage() {
           },
           {
             icon: <IconGlyph icon={Flag} />,
-            title: "A production roadmap",
+            title: "A clear next step",
             description:
-              "A clear, honest plan for what it takes to go from sprint build to shipped feature.",
+              "An honest read on what it takes to go from prototype to shipped product, credited toward Ship One Thing.",
           },
         ]}
       />
@@ -153,17 +173,17 @@ export default function AIHackSprintsPage() {
           {
             question: "Who needs to be in the room for a sprint?",
             answer:
-              "A small, empowered team of 3 to 6 people who can make decisions without waiting on approvals. That's what keeps the week moving.",
+              "A small, empowered team of up to 15 people who can make decisions without waiting on approvals. That's what keeps the day moving.",
           },
           {
             question: "Do we need our own engineers?",
             answer:
-              "It helps, but it's not required. Depending on scope, our team can pair directly with yours to cover technical gaps for the week.",
+              "It helps, but it's not required. Depending on scope, our team can pair directly with yours to cover technical gaps for the day.",
           },
           {
-            question: "What happens to the product after the sprint?",
+            question: "What happens to the prototype after the sprint?",
             answer:
-              "It's yours. The sprint ends with a working build and a roadmap; what you do with it from there is entirely up to your team.",
+              "It's yours. The sprint ends with a working build; what you do with it from there is entirely up to your team.",
           },
           {
             question: "Can a sprint run remotely?",
@@ -171,16 +191,16 @@ export default function AIHackSprintsPage() {
               "Yes. Sprints run in person, remote, or hybrid. In-person tends to move faster, but remote sprints with the right structure work well too.",
           },
           {
-            question: "How is this different from a hackathon?",
+            question: "How is this different from Ship One Thing?",
             answer:
-              "A hackathon is exploratory and often disposable. A sprint is scoped against a real problem your team already has, with a roadmap built in so the output doesn't die on Friday.",
+              "A Hack Sprint is a single focused day to validate one idea as a working prototype. Ship One Thing is a 2–4 week engagement to turn that idea into a product your team actually uses every day. Your sprint fee is credited toward it if you go ahead within 30 days.",
           },
         ]}
       />
 
       <CTASection
         title="Bring us the idea you keep putting off."
-        description="Book a discovery call and we'll tell you if it's sprint-shaped, and what it would take to ship it in a week."
+        description="Book a discovery call and we'll tell you if it's sprint-shaped, and what it would take to prototype it in a day."
       />
     </>
   );

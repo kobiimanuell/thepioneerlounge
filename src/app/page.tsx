@@ -25,80 +25,61 @@ export default function Home() {
       <EpisodesSection />
       <TestimonialsSection />
       <TierCards
+        eyebrow="Pricing"
+        title="Three ways to work with us."
+        description=""
         tiers={[
           {
-            name: "AI Foundations",
-            price: "$29–47",
-            cadence: "per person · self-paced",
-            description:
-              "The prompts, workflows, and guardrails that take AI from novelty to daily habit, at your own pace.",
-            features: [
-              "Self-paced modules, a few hours total",
-              "Prompts and workflows for your actual tools",
-              "Certificate of completion",
-              "Lifetime access to updates",
-            ],
-            cta: "Enroll now",
-            href: site.stripeFoundationsUrl,
-          },
-          {
-            name: "Team AI Upskilling",
-            price: "From $3,500",
-            cadence: "half-day session",
-            description:
-              "Live, facilitated sessions built around the tools your team already runs on, not generic AI theory. Full multi-session programs from $9,500.",
-            features: [
-              "Half-day, hands-on session for your team",
-              "Content built around your actual stack",
-              "Full multi-session programs from $9,500",
-              "Direct line to a dedicated facilitator",
-            ],
+            kicker: "Learn",
+            name: "Team AI Workshop",
+            price: "From $3,500*",
+            cadence: "Half-day session. Full programs from $9,500.",
+            description: "Your team leaves using AI in their real work.",
+            note: "About $230 per person for a team of 15",
             featured: true,
-            cta: "Request a proposal",
+            badge: "Most teams start here",
+            cta: "Book a workshop",
+            href: "/workshops",
           },
           {
-            name: "Hack-Sprints",
-            price: "From $2,000",
-            cadence: "half-day",
-            description:
-              "A mini-hackathon for your team: a focused half-day sprint to prototype a real AI use case together.",
-            features: [
-              "Cross-functional team paired with facilitators",
-              "A working prototype by the end of the day",
-              "Scoped to one clear use case",
-              "Half-day format, in person or remote",
-            ],
-            cta: "Request a proposal",
-          },
-          {
+            kicker: "Build",
             name: "Ship One Thing",
-            price: "From $15,000",
-            cadence: "2–4 weeks",
-            description:
-              "A focused sprint to design, build, and ship one real, end-to-end AI-powered product or workflow.",
-            features: [
-              "A working, shippable product, not a demo",
-              "Scoped to one clear outcome",
-              "2–4 week delivery timeline",
-              "Direct collaboration with your team throughout",
-            ],
-            cta: "Schedule a discovery call",
+            price: "From $15,000*",
+            cadence: "2–4 weeks, end to end.",
+            description: "One working AI tool your team uses every day.",
+            note: "50% to start, 50% on delivery",
+            badge: "Limited spots: founding-client pricing for early 2027",
+            cta: "Book a discovery call",
+            href: "/ship-one-thing",
           },
           {
+            kicker: "Lead",
             name: "Fractional AI Lead",
-            price: "From $4,000",
-            cadence: "per month · 3-month minimum",
-            description:
-              "An embedded AI lead for your organization, driving strategy, rollout, and adoption without a full-time hire.",
-            features: [
-              "Monthly retainer, 3-month minimum",
-              "Executive strategy and roadmap",
-              "Ongoing advisory and office hours",
-              "Embedded support across your organization",
-            ],
-            cta: "Schedule a discovery call",
+            price: "From $4,000/mo*",
+            cadence: "Monthly retainer, 3-month minimum.",
+            description: "Ongoing AI leadership without a full-time hire.",
+            note: "Billed monthly",
+            cta: "Book a discovery call",
+            href: "/fractional-ai-lead",
           },
         ]}
+        footnote="*Final price depends on team size and scope, and is confirmed on your discovery call."
+        belowNote={
+          <p className="text-sm text-paper-dim">
+            Not ready for a team program? Start with our{" "}
+            <a href="/community" className="text-ember-500 underline underline-offset-4 hover:text-ember-400">
+              free community
+            </a>{" "}
+            or our self-led course from{" "}
+            <a
+              href={site.stripeFoundationsUrl}
+              className="text-ember-500 underline underline-offset-4 hover:text-ember-400"
+            >
+              $29
+            </a>
+            .
+          </p>
+        }
       />
       <FAQSection
         items={[
@@ -110,12 +91,12 @@ export default function Home() {
           {
             question: "Do you work with individuals or only teams?",
             answer:
-              "Both. AI Foundations is self-paced for individual professionals. Team AI Upskilling, Hack-Sprints, Ship One Thing, and the Fractional AI Lead retainer are built for teams and full organizations.",
+              "Both. Our self-led course is built for individual professionals. The Team AI Workshop, Ship One Thing, and the Fractional AI Lead retainer are built for teams and full organizations.",
           },
           {
             question: "How long does a typical engagement take?",
             answer:
-              "Workshops and Hack-Sprints run in a single half-day session. Ship One Thing runs 2–4 weeks. Fractional AI Lead and enterprise rollouts are ongoing, scoped together on a discovery call.",
+              "The Team AI Workshop runs a single half-day session. Ship One Thing runs 2–4 weeks, end to end. Fractional AI Lead is an ongoing monthly retainer, scoped together on a discovery call.",
           },
           {
             question: "Can you train a team on a specific AI tool we already use?",

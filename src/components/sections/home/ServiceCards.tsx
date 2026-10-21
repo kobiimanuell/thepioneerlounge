@@ -29,7 +29,7 @@ const cards = [
     icon: Zap,
     title: "AI Hack Sprints",
     description:
-      "A focused, high-energy week that takes a team from idea to a working AI product they actually shipped.",
+      "A focused, high-energy day that takes a team from idea to a working AI prototype they actually shipped.",
     href: "/ai-hack-sprints",
     image: "/images/service-hacksprint.jpg",
   },

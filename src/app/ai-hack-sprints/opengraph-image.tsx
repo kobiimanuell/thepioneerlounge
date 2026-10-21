@@ -7,7 +7,7 @@ export const contentType = ogImageContentType;
 export default async function Image() {
   return new ImageResponse(
     ogImageElement(
-      "One week. One real product. Zero slideware.",
+      "One day. One real prototype. Zero slideware.",
       "AI Hack Sprints"
     ),
     { ...size }

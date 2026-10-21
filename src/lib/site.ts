@@ -36,7 +36,17 @@ export const serviceNav: NavItem[] = [
   {
     label: "AI Hack Sprints",
     href: "/ai-hack-sprints",
-    description: "A focused week to ship a working AI project.",
+    description: "A focused day to ship a working AI prototype.",
+  },
+  {
+    label: "Ship One Thing",
+    href: "/ship-one-thing",
+    description: "A 2–4 week build for one real AI tool, shipped.",
+  },
+  {
+    label: "Fractional AI Lead",
+    href: "/fractional-ai-lead",
+    description: "Embedded AI leadership, without the full-time hire.",
   },
   {
     label: "Enterprise Program",
