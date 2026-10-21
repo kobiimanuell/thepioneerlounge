@@ -43,30 +43,59 @@ export default function Home() {
           },
           {
             name: "Team AI Upskilling",
-            price: "From $2,000",
-            cadence: "per month",
+            price: "From $3,500",
+            cadence: "half-day session",
             description:
-              "Live, facilitated sessions built around the tools your team already runs on, not generic AI theory.",
+              "Live, facilitated sessions built around the tools your team already runs on, not generic AI theory. Full multi-session programs from $9,500.",
             features: [
-              "Weekly live sessions for teams of 50+",
+              "Half-day, hands-on session for your team",
               "Content built around your actual stack",
-              "Adoption tracked across the org",
+              "Full multi-session programs from $9,500",
               "Direct line to a dedicated facilitator",
             ],
             featured: true,
             cta: "Request a proposal",
           },
           {
-            name: "Strategic AI Partnership",
-            price: "Custom",
-            cadence: "scoped on the call",
+            name: "Hack-Sprints",
+            price: "From $2,000",
+            cadence: "half-day",
             description:
-              "Fixed-scope strategy and rollout work, priced and timelined before kickoff, not after.",
+              "A mini-hackathon for your team: a focused half-day sprint to prototype a real AI use case together.",
             features: [
+              "Cross-functional team paired with facilitators",
+              "A working prototype by the end of the day",
+              "Scoped to one clear use case",
+              "Half-day format, in person or remote",
+            ],
+            cta: "See how it works",
+            href: "/ai-hack-sprints",
+          },
+          {
+            name: "Ship One Thing",
+            price: "From $15,000",
+            cadence: "2–4 weeks",
+            description:
+              "A focused sprint to design, build, and ship one real, end-to-end AI-powered product or workflow.",
+            features: [
+              "A working, shippable product, not a demo",
+              "Scoped to one clear outcome",
+              "2–4 week delivery timeline",
+              "Direct collaboration with your team throughout",
+            ],
+            cta: "Schedule a discovery call",
+          },
+          {
+            name: "Fractional AI Lead",
+            price: "From $4,000",
+            cadence: "per month · 3-month minimum",
+            description:
+              "An embedded AI lead for your organization, driving strategy, rollout, and adoption without a full-time hire.",
+            features: [
+              "Monthly retainer, 3-month minimum",
               "Executive strategy and roadmap",
-              "Enterprise-wide rollout support",
               "Ongoing advisory and office hours",
-              "Scoped and timelined before kickoff",
+              "Embedded support across your organization",
             ],
             cta: "Schedule a discovery call",
           },
@@ -82,12 +111,12 @@ export default function Home() {
           {
             question: "Do you work with individuals or only teams?",
             answer:
-              "Both. AI Foundations is self-paced for individual professionals. Team AI Upskilling and the Strategic AI Partnership are built for teams of 50+ and full organizations.",
+              "Both. AI Foundations is self-paced for individual professionals. Team AI Upskilling, Hack-Sprints, Ship One Thing, and the Fractional AI Lead retainer are built for teams and full organizations.",
           },
           {
             question: "How long does a typical engagement take?",
             answer:
-              "Workshops run in a single session. Enterprise rollouts and strategic partnerships are scoped together on a discovery call, based on the size of your team and the complexity of the goal.",
+              "Workshops and Hack-Sprints run in a single half-day session. Ship One Thing runs 2–4 weeks. Fractional AI Lead and enterprise rollouts are ongoing, scoped together on a discovery call.",
           },
           {
             question: "Can you train a team on a specific AI tool we already use?",

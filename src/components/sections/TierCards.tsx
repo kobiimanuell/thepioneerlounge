@@ -27,11 +27,17 @@ export function TierCards({
   title?: string;
   description?: string;
 }) {
+  const countWords: Record<number, string> = {
+    3: "Three",
+    4: "Four",
+    5: "Five",
+    6: "Six",
+  };
   const resolvedTitle =
     title ??
-    (tiers.length >= 3
-      ? "Three ways to work with us."
-      : "Two tiers, scoped to your organization.");
+    (tiers.length === 2
+      ? "Two tiers, scoped to your organization."
+      : `${countWords[tiers.length] ?? tiers.length} ways to work with us.`);
 
   return (
     <section className="border-b border-line py-24 lg:py-32">
