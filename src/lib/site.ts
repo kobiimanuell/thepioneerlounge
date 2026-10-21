@@ -8,6 +8,12 @@ export const site = {
     "The Pioneer Lounge delivers consultations, workshops, AI hack sprints, and enterprise training programs that turn AI curiosity into shipped work.",
   email: "hello@thepioneerlounge.com",
   calendarUrl: "https://calendly.com/osauzomaureen/consultations",
+  // Paid 1:1 consultation event type, once set up in the Calendly dashboard.
+  calendarPaidUrl: process.env.NEXT_PUBLIC_CALENDLY_PAID_URL,
+  // Stripe Payment Link for the AI Foundations self-serve checkout.
+  // Falls back to the discovery call until the real link is set.
+  stripeFoundationsUrl:
+    process.env.NEXT_PUBLIC_STRIPE_FOUNDATIONS_URL || "/book-a-call",
 };
 
 export type NavItem = {
@@ -42,6 +48,7 @@ export const serviceNav: NavItem[] = [
 export const mainNav: NavItem[] = [
   ...serviceNav,
   { label: "Speaking & Media", href: "/speaking-media" },
+  { label: "Events", href: "/events" },
   { label: "Community", href: "/community" },
   { label: "About", href: "/about" },
 ];
@@ -51,6 +58,7 @@ export const footerNav = {
   Company: [
     { label: "About", href: "/about" },
     { label: "Speaking & Media", href: "/speaking-media" },
+    { label: "Events", href: "/events" },
     { label: "Community", href: "/community" },
     { label: "Book a Call", href: "/book-a-call" },
   ] as NavItem[],

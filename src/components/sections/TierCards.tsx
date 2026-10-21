@@ -13,16 +13,33 @@ export type Tier = {
   features: string[];
   featured?: boolean;
   cta?: string;
+  href?: string;
 };
 
-export function TierCards({ tiers }: { tiers: Tier[] }) {
+export function TierCards({
+  tiers,
+  eyebrow = "Program tiers",
+  title,
+  description = "Final scope, cohort size, and timeline are confirmed together during your briefing call. Here's the shape of each tier.",
+}: {
+  tiers: Tier[];
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+}) {
+  const resolvedTitle =
+    title ??
+    (tiers.length >= 3
+      ? "Three ways to work with us."
+      : "Two tiers, scoped to your organization.");
+
   return (
     <section className="border-b border-line py-24 lg:py-32">
       <Container>
         <SectionHeading
-          eyebrow="Program tiers"
-          title="Two tiers, scoped to your organization."
-          description="Final scope, cohort size, and timeline are confirmed together during your briefing call. Here's the shape of each tier."
+          eyebrow={eyebrow}
+          title={resolvedTitle}
+          description={description}
         />
 
         <div
@@ -49,7 +66,7 @@ export function TierCards({ tiers }: { tiers: Tier[] }) {
               )}
               <h3 className="text-2xl font-semibold text-paper">{tier.name}</h3>
               {tier.price && (
-                <p className="mt-4 flex items-baseline gap-1.5">
+                <p className="mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
                   <span className="text-3xl font-semibold text-paper">
                     {tier.price}
                   </span>
@@ -78,7 +95,7 @@ export function TierCards({ tiers }: { tiers: Tier[] }) {
                 ))}
               </ul>
               <Button
-                href="/book-a-call"
+                href={tier.href ?? "/book-a-call"}
                 variant={tier.featured ? "primary" : "outline"}
                 className="mt-9 w-full"
               >

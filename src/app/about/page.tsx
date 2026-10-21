@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { IconGlyph } from "@/components/ui/IconGlyph";
-import Image from "next/image";
 import { pageMetadata } from "@/lib/metadata";
-import { Compass, Heart, ShieldCheck, Flame, ImageUp } from "lucide-react";
+import { Compass, Heart, ShieldCheck, Flame } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -56,21 +55,7 @@ export default function AboutPage() {
         <Container>
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <Reveal>
-              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-dashed border-line bg-ink-900">
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-8 text-center">
-                  <Image
-                    src="/brand/logo/icon-mark-orange.png"
-                    alt=""
-                    width={56}
-                    height={56}
-                    className="size-14 opacity-70"
-                  />
-                  <ImageUp className="size-5 text-paper-dim/50" />
-                  <p className="text-xs text-paper-dim/50">
-                    Founder photo placeholder
-                  </p>
-                </div>
-              </div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink-900" />
             </Reveal>
 
             <div className="flex flex-col gap-6">

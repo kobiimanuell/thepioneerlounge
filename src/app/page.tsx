@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/home/Hero";
 import { ShowcaseSection } from "@/components/sections/home/ShowcaseSection";
 import { ProofStrip } from "@/components/sections/home/ProofStrip";
 import { ServiceCards } from "@/components/sections/home/ServiceCards";
+import { VideoHighlight } from "@/components/sections/home/VideoHighlight";
 import { AudienceScroll } from "@/components/sections/home/AudienceScroll";
 import { EnterpriseHighlight } from "@/components/sections/home/EnterpriseHighlight";
 import { EpisodesSection } from "@/components/sections/home/EpisodesSection";
@@ -9,6 +10,7 @@ import { TestimonialsSection } from "@/components/sections/home/TestimonialsSect
 import { TierCards } from "@/components/sections/TierCards";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
+import { site } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -17,6 +19,7 @@ export default function Home() {
       <ShowcaseSection />
       <ProofStrip />
       <ServiceCards />
+      <VideoHighlight />
       <AudienceScroll />
       <EnterpriseHighlight />
       <EpisodesSection />
@@ -36,6 +39,7 @@ export default function Home() {
               "Lifetime access to updates",
             ],
             cta: "Enroll now",
+            href: site.stripeFoundationsUrl,
           },
           {
             name: "Team AI Upskilling",

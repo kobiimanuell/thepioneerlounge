@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
+import { EmailSignup } from "../sections/EmailSignup";
 import { footerNav, site } from "@/lib/site";
 import { CurrentYear } from "./CurrentYear";
 
@@ -28,7 +29,11 @@ export function Footer() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
 
       <Container className="relative py-16 lg:py-20">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr_0.9fr_0.9fr]">
+        <div className="border-b border-white/10 pb-12 lg:max-w-xl">
+          <EmailSignup compact />
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr_0.9fr_0.9fr]">
           <div className="flex flex-col gap-6">
             <Link
               href="/"

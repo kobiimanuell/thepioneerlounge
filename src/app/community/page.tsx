@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Users2, Hash, Sparkles, Users, Calendar, Library, BadgeCheck } from "lucide-react";
+import Link from "next/link";
+import { Users2, Hash, Sparkles, Users, Calendar, Library, BadgeCheck, ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -10,6 +11,7 @@ import { IconGrid } from "@/components/sections/IconGrid";
 import { IconGlyph } from "@/components/ui/IconGlyph";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
+import { EmailSignup } from "@/components/sections/EmailSignup";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata(
@@ -86,12 +88,9 @@ export default function CommunityPage() {
               </div>
 
               <div className="mt-6 flex flex-col divide-y divide-line border-t border-line">
-                <a
-                  href="#"
-                  className="group flex items-center gap-4 py-5 transition-colors"
-                >
+                <div className="flex items-center gap-4 py-5">
                   <Users2
-                    className="size-5 shrink-0 text-ember-500"
+                    className="size-5 shrink-0 text-ember-500/50"
                     strokeWidth={1.75}
                   />
                   <div className="flex-1">
@@ -102,16 +101,13 @@ export default function CommunityPage() {
                       Discussions, resources, and announcements.
                     </div>
                   </div>
-                  <span className="text-sm font-medium text-ember-500 opacity-0 transition-opacity group-hover:opacity-100">
-                    Join →
+                  <span className="text-xs font-medium uppercase tracking-wide text-paper-dim/50">
+                    Coming soon
                   </span>
-                </a>
-                <a
-                  href="#"
-                  className="group flex items-center gap-4 py-5 transition-colors"
-                >
+                </div>
+                <div className="flex items-center gap-4 py-5">
                   <Hash
-                    className="size-5 shrink-0 text-ember-500"
+                    className="size-5 shrink-0 text-ember-500/50"
                     strokeWidth={1.75}
                   />
                   <div className="flex-1">
@@ -122,11 +118,19 @@ export default function CommunityPage() {
                       Real-time chat for quick questions and faster feedback.
                     </div>
                   </div>
-                  <span className="text-sm font-medium text-ember-500 opacity-0 transition-opacity group-hover:opacity-100">
-                    Join →
+                  <span className="text-xs font-medium uppercase tracking-wide text-paper-dim/50">
+                    Coming soon
                   </span>
-                </a>
+                </div>
               </div>
+
+              <Link
+                href="/events"
+                className="group mt-6 flex items-center gap-2 text-sm font-medium text-ember-500 transition-colors hover:text-ember-400"
+              >
+                See upcoming and past events
+                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
             </Reveal>
           </div>
         </Container>
@@ -167,6 +171,16 @@ export default function CommunityPage() {
               Request membership access
             </Button>
           </Reveal>
+        </Container>
+      </section>
+
+      <section className="border-b border-line py-24 lg:py-32">
+        <Container>
+          <div className="mx-auto max-w-xl">
+            <Reveal>
+              <EmailSignup />
+            </Reveal>
+          </div>
         </Container>
       </section>
 

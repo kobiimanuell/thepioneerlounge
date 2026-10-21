@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/ai-hack-sprints", priority: 0.9, changeFrequency: "monthly" },
     { path: "/enterprise-program", priority: 0.9, changeFrequency: "monthly" },
     { path: "/speaking-media", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/events", priority: 0.7, changeFrequency: "weekly" },
     { path: "/community", priority: 0.7, changeFrequency: "monthly" },
     { path: "/about", priority: 0.6, changeFrequency: "monthly" },
     { path: "/book-a-call", priority: 0.8, changeFrequency: "monthly" },
