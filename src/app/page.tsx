@@ -68,8 +68,7 @@ export default function Home() {
               "Scoped to one clear use case",
               "Half-day format, in person or remote",
             ],
-            cta: "See how it works",
-            href: "/ai-hack-sprints",
+            cta: "Request a proposal",
           },
           {
             name: "Ship One Thing",
