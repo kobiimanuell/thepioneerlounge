@@ -16,6 +16,7 @@ const panels = [
     description:
       "Cross-functional teams pair with facilitators to ship a real AI-powered prototype in hours, not quarters.",
     image: "/clipmate-frames/voice-view.png",
+    imageFit: "contain" as const,
   },
   {
     key: "workshops",
@@ -23,7 +24,8 @@ const panels = [
     title: "Hands-on sessions your team actually finishes.",
     description:
       "Live, facilitated sessions built around your team's real tools and real workflows, not generic slides.",
-    image: "/clipmate-frames/thumbnail-view.png",
+    image: "/images/workshops-banner.jpg",
+    imageFit: "cover" as const,
   },
   {
     key: "enterprise",
@@ -31,7 +33,8 @@ const panels = [
     title: "A rollout built for a hundred people, not ten.",
     description:
       "Structured, cohort-based training that scales AI fluency across an entire org without losing rigor.",
-    image: "/clipmate-frames/macbook.png",
+    image: "/images/enterprise-banner.jpg",
+    imageFit: "cover" as const,
   },
 ];
 
@@ -106,7 +109,11 @@ export function ShowcaseSection() {
                   alt={panel.label}
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-contain p-8"
+                  className={
+                    panel.imageFit === "cover"
+                      ? "object-cover"
+                      : "object-contain p-8"
+                  }
                 />
               </div>
               <div className="p-8 lg:p-14">
