@@ -22,6 +22,7 @@ export function VideoHighlight() {
           muted
           loop
           playsInline
+          controls
           preload="metadata"
           className="h-auto w-full lg:mx-auto lg:w-1/2"
         />
