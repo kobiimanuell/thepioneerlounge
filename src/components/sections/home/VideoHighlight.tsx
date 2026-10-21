@@ -15,7 +15,7 @@ export function VideoHighlight() {
         </Reveal>
       </div>
 
-      <Reveal delay={0.1} className="relative mt-12 aspect-video w-full overflow-hidden lg:mt-16">
+      <Reveal delay={0.1} className="mt-12 lg:mt-16">
         <video
           src="/videos/heygen-hackathon-highlight.mp4"
           autoPlay
@@ -23,7 +23,7 @@ export function VideoHighlight() {
           loop
           playsInline
           preload="metadata"
-          className="h-full w-full object-cover"
+          className="h-auto w-full lg:mx-auto lg:w-1/2"
         />
       </Reveal>
     </section>

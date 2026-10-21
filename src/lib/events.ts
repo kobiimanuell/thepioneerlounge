@@ -6,6 +6,8 @@ export type EventItem = {
   location: string;
   description: string;
   image: string;
+  imageWidth: number; // real pixel width of `image`, so it renders uncropped
+  imageHeight: number; // real pixel height of `image`, so it renders uncropped
   photos?: string[]; // additional photos for a slideshow, if available
   externalUrl?: string;
 };
@@ -20,6 +22,8 @@ export const events: EventItem[] = [
     description:
       "A hybrid symposium on leading through AI, plus the official launch of the SelfEducation AI Institute. Free seating, registration required.",
     image: "/images/banners/leading-in-the-age-of-ai-symposium.jpeg",
+    imageWidth: 1008,
+    imageHeight: 1250,
     externalUrl: "https://selfeducation.ca/reg",
   },
   {
@@ -31,6 +35,8 @@ export const events: EventItem[] = [
     description:
       "A Clay Cohort speaker session with Maureen Osauzo, Founder of The Pioneer Lounge and former AI Pioneer at HeyGen.",
     image: "/images/banners/ai-speaker-series-clay-cohort.jpeg",
+    imageWidth: 1206,
+    imageHeight: 1190,
   },
   {
     slug: "ai-innovation-sprint-vancouver",
@@ -41,6 +47,8 @@ export const events: EventItem[] = [
     description:
       "A multi-day AI innovation sprint presented by The Pioneer Lounge, facilitated by founder Maureen Osauzo.",
     image: "/images/banners/ai-innovation-sprint-vancouver.jpeg",
+    imageWidth: 1206,
+    imageHeight: 1206,
   },
   {
     slug: "career-journeys-dress-for-success",
@@ -51,6 +59,8 @@ export const events: EventItem[] = [
     description:
       "A panel on career journeys with Dress for Success Vancouver ambassadors.",
     image: "/images/banners/career-journeys-dress-for-success.jpeg",
+    imageWidth: 1206,
+    imageHeight: 1169,
   },
   {
     slug: "heygen-hackathon",
@@ -61,6 +71,8 @@ export const events: EventItem[] = [
     description:
       "Builders, volunteers, and judges came together for Vancouver's first HeyGen hack sprint, reviewing and shipping creative AI video projects in a day.",
     image: "/images/events/heygen-hackathon/heygen-hackathon-01.jpg",
+    imageWidth: 1206,
+    imageHeight: 1765,
     photos: Array.from(
       { length: 18 },
       (_, i) =>

@@ -37,8 +37,9 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
     return (
       <div
         className={clsx(
-          "flex items-center gap-3 rounded-2xl border border-ember-500/30 bg-ember-500/10 p-5",
-          compact && "text-white"
+          "flex items-center gap-3 border border-ember-500/30 bg-ember-500/10 p-5",
+          !compact && "lg:rounded-2xl",
+          compact && "rounded-2xl text-white"
         )}
       >
         <Check className="size-5 shrink-0 text-ember-500" strokeWidth={2.5} />
@@ -54,7 +55,7 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
       className={clsx(
         compact
           ? "text-white"
-          : "rounded-3xl bg-ink-900 p-8 lg:p-10 text-paper"
+          : "bg-ink-900 p-8 text-paper lg:rounded-3xl lg:p-10"
       )}
     >
       <p

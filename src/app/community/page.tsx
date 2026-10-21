@@ -175,13 +175,11 @@ export default function CommunityPage() {
       </section>
 
       <section className="border-b border-line py-24 lg:py-32">
-        <Container>
-          <div className="mx-auto max-w-xl">
-            <Reveal>
-              <EmailSignup />
-            </Reveal>
-          </div>
-        </Container>
+        <div className="lg:mx-auto lg:max-w-xl lg:px-10">
+          <Reveal>
+            <EmailSignup />
+          </Reveal>
+        </div>
       </section>
 
       <FAQSection

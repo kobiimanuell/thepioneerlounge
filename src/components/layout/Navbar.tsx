@@ -49,7 +49,14 @@ export function Navbar() {
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
-            <button className="flex items-center gap-1 rounded-full px-4 py-2 text-sm text-paper-dim transition-colors hover:text-paper">
+            <button
+              className={clsx(
+                "flex items-center gap-1 rounded-full px-4 py-2 text-sm transition-colors",
+                scrolled
+                  ? "text-paper-dim hover:text-paper"
+                  : "text-white/85 hover:text-white"
+              )}
+            >
               Services
               <ChevronDown className="size-3.5" />
             </button>
@@ -87,7 +94,12 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full px-4 py-2 text-sm text-paper-dim transition-colors hover:text-paper"
+              className={clsx(
+                "rounded-full px-4 py-2 text-sm transition-colors",
+                scrolled
+                  ? "text-paper-dim hover:text-paper"
+                  : "text-white/85 hover:text-white"
+              )}
             >
               {item.label}
             </Link>
@@ -101,7 +113,10 @@ export function Navbar() {
         </div>
 
         <button
-          className="flex size-10 items-center justify-center text-paper lg:hidden"
+          className={clsx(
+            "flex size-10 items-center justify-center lg:hidden",
+            scrolled || mobileOpen ? "text-paper" : "text-white"
+          )}
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >

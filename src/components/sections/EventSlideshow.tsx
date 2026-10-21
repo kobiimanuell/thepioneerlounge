@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
@@ -13,6 +13,7 @@ export function EventSlideshow({
   alt: string;
 }) {
   const [index, setIndex] = useState<number | null>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
 
   if (photos.length === 0) return null;
 
@@ -23,9 +24,23 @@ export function EventSlideshow({
     });
   };
 
+  const onWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    const track = trackRef.current;
+    if (!track) return;
+    // Let a vertical mouse wheel drive horizontal scroll on desktop.
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      track.scrollLeft += e.deltaY;
+      e.preventDefault();
+    }
+  };
+
   return (
     <>
-      <div className="flex gap-3 overflow-x-auto pb-1">
+      <div
+        ref={trackRef}
+        onWheel={onWheel}
+        className="no-scrollbar flex gap-3 overflow-x-auto pb-1"
+      >
         {photos.map((src, i) => (
           <button
             key={src}

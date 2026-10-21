@@ -49,15 +49,14 @@ export default function EventsPage() {
                   delay={i * 0.08}
                   className="flex flex-col overflow-hidden rounded-3xl bg-ink-900/50"
                 >
-                  <div className="relative aspect-[4/3] w-full">
-                    <Image
-                      src={event.image}
-                      alt={event.title}
-                      fill
-                      sizes="(min-width: 768px) 50vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    width={event.imageWidth}
+                    height={event.imageHeight}
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="h-auto w-full"
+                  />
                   <div className="flex flex-1 flex-col p-7">
                     <h3 className="text-xl font-semibold text-paper">
                       {event.title}
@@ -108,15 +107,14 @@ export default function EventsPage() {
                 delay={i * 0.05}
                 className="grid grid-cols-1 gap-6 py-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center"
               >
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl">
-                  <Image
-                    src={event.image}
-                    alt={event.title}
-                    fill
-                    sizes="(min-width: 1024px) 40vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  width={event.imageWidth}
+                  height={event.imageHeight}
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="h-auto w-full rounded-2xl"
+                />
                 <div>
                   <h3 className="text-xl font-semibold text-paper">
                     {event.title}
