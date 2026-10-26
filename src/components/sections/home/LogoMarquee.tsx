@@ -11,6 +11,8 @@ const clients: Client[] = [
   { name: "HeyGen", logo: "/brand/clients/heygen.ico" },
   { name: "BrainStation" },
   { name: "Clay" },
+  { name: "interactED" },
+  { name: "Specific Engineering Solutions" },
   { name: "Dress for Success" },
   { name: "Ethos Lab" },
   { name: "WIT Regatta" },

@@ -8,9 +8,9 @@ export function BookingTabs() {
           Pick a time that works for you
         </h2>
         <p className="mt-2 text-sm text-paper-dim">
-          30 minutes, no prep required. We&apos;ll figure out the right fit
-          together, whether that&apos;s a consultation, workshop, hack
-          sprint, or the Enterprise Program.
+          15 minutes, no prep required. We&apos;ll figure out the right fit
+          together, whether that&apos;s AI Consulting, AI Workshops, or AI
+          Hack Sprints.
         </p>
       </div>
       <div className="mt-8">

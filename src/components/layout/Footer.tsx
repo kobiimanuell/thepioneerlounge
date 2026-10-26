@@ -116,9 +116,14 @@ export function Footer() {
             >
               {site.email}
             </a>
-            <Link href="/community" className="transition-colors hover:text-white">
+            <a
+              href={site.slackUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+            >
               Join the community
-            </Link>
+            </a>
           </div>
         </div>
       </Container>

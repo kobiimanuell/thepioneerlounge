@@ -6,10 +6,7 @@ export const contentType = ogImageContentType;
 
 export default async function Image() {
   return new ImageResponse(
-    ogImageElement(
-      "Talks on AI adoption, built for people who have to act on them.",
-      "Speaking & Media"
-    ),
+    ogImageElement("Selected Work & Impact", "Our Work"),
     { ...size }
   );
 }

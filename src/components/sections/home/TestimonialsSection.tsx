@@ -21,6 +21,30 @@ const testimonials = [
     name: "Mahdiyar Saber",
     role: "AI-Native GTM, Origin",
   },
+  {
+    quote:
+      "Maureen's 1:1 guidance on HeyGen was exactly what I needed, clear, thoughtful, and tailored to my business use case. I truly appreciated her generosity with her time and the actionable insights she shared.",
+    name: "Ashley MacArthur",
+    role: "",
+  },
+  {
+    quote:
+      "It was a pleasure being a part of two very successful events with Maureen and her team. They created engaging, collaborative spaces where professionals and curious individuals could explore technological programs and applications, share knowledge, and build meaningful connections.",
+    name: "Lucy Lai",
+    role: "",
+  },
+  {
+    quote:
+      "It was an amazing, well-organized event. The organizers created a seamless experience and a truly supportive space for women in tech to build, collaborate, and connect. I'd jump at the chance to be part of the next one.",
+    name: "Kehinde Fawumi",
+    role: "",
+  },
+  {
+    quote:
+      "Facilitating the AI Hackathon at the Pioneer Lounge introduced me to new AI tools and practical ways to apply them to everyday tasks and problem-solving. It was a valuable experience that reinforced the power of learning by doing and being part of an innovative community.",
+    name: "Stephanie George",
+    role: "",
+  },
 ];
 
 export function TestimonialsSection() {
@@ -45,7 +69,11 @@ export function TestimonialsSection() {
               </p>
               <div>
                 <div className="text-sm font-medium text-paper">{t.name}</div>
-                <div className="mt-0.5 text-xs text-paper-dim/70">{t.role}</div>
+                {t.role && (
+                  <div className="mt-0.5 text-xs text-paper-dim/70">
+                    {t.role}
+                  </div>
+                )}
               </div>
             </Reveal>
           ))}

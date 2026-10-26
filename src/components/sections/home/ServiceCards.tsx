@@ -11,27 +11,27 @@ import { motion } from "motion/react";
 const cards = [
   {
     icon: Compass,
-    title: "Consultations",
+    title: "AI Consulting",
     description:
-      "Strategic, 1:1 guidance for leaders deciding where AI fits in their roadmap, and where it doesn't.",
+      "Business-first guidance for leaders deciding where AI fits in their roadmap, and where it doesn't.",
     href: "/consultations",
     image: "/images/service-consultations.jpg",
-  },
-  {
-    icon: Users,
-    title: "Workshops",
-    description:
-      "Hands-on sessions that build real fluency across your team, from first prompts to production workflows.",
-    href: "/workshops",
-    image: "/images/service-workshop.jpg",
   },
   {
     icon: Zap,
     title: "AI Hack Sprints",
     description:
-      "A focused, high-energy day that takes a team from idea to a working AI prototype they actually shipped.",
+      "A focused, facilitated session that takes a team from idea to a working AI prototype they actually built.",
     href: "/ai-hack-sprints",
     image: "/images/service-hacksprint.jpg",
+  },
+  {
+    icon: Users,
+    title: "AI Workshops",
+    description:
+      "Practical training that builds real fluency across your team, from a single session to a tailored program.",
+    href: "/workshops",
+    image: "/images/service-workshop.jpg",
   },
 ];
 

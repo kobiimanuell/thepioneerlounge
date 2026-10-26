@@ -82,10 +82,9 @@ export default function AboutPage() {
                 <p className="leading-relaxed">
                   Answering that question consistently, in public, is what
                   built a trusted following long before it became a company.
-                  The Pioneer Lounge turns that same directness into
-                  consultations, workshops, hack sprints, and enterprise
-                  programs, built for people who are done reading about AI
-                  and ready to run on it.
+                  The Pioneer Lounge turns that same directness into AI
+                  consulting, hack sprints, and workshops, built for people
+                  who are done reading about AI and ready to run on it.
                 </p>
                 <p className="leading-relaxed">
                   No theater, no vague futurism. Just what&apos;s working

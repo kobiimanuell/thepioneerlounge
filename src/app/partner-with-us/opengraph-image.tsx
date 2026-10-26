@@ -6,10 +6,7 @@ export const contentType = ogImageContentType;
 
 export default async function Image() {
   return new ImageResponse(
-    ogImageElement(
-      "Embedded AI leadership, without the full-time hire.",
-      "Fractional AI Lead"
-    ),
+    ogImageElement("Our Ecosystem of Collaboration", "Partner With Us"),
     { ...size }
   );
 }

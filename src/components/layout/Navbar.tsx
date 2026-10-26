@@ -4,17 +4,16 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import clsx from "clsx";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
 import { Logo } from "./Logo";
-import { mainNav, serviceNav } from "@/lib/site";
+import { mainNav } from "@/lib/site";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -29,8 +28,6 @@ export function Navbar() {
     setMobileOpen(false);
   }, [pathname]);
 
-  const topLevel = mainNav.filter((item) => !serviceNav.includes(item));
-
   return (
     <header
       className={clsx(
@@ -44,53 +41,7 @@ export function Navbar() {
         <Logo />
 
         <nav className="hidden items-center gap-1 lg:flex">
-          <div
-            className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
-          >
-            <button
-              className={clsx(
-                "flex items-center gap-1 rounded-full px-4 py-2 text-sm transition-colors",
-                scrolled
-                  ? "text-paper-dim hover:text-paper"
-                  : "text-white/85 hover:text-white"
-              )}
-            >
-              Services
-              <ChevronDown className="size-3.5" />
-            </button>
-            <AnimatePresence>
-              {servicesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.18 }}
-                  className="absolute left-1/2 top-full w-80 -translate-x-1/2 pt-3"
-                >
-                  <div className="overflow-hidden rounded-2xl border border-line bg-ink-900/95 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
-                    {serviceNav.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block rounded-xl px-4 py-3 transition-colors hover:bg-ink-800"
-                      >
-                        <div className="text-sm font-medium text-paper">
-                          {item.label}
-                        </div>
-                        <div className="mt-0.5 text-xs text-paper-dim">
-                          {item.description}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {topLevel.map((item) => (
+          {mainNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}

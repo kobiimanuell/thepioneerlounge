@@ -1,19 +1,23 @@
 export const site = {
   name: "The Pioneer Lounge",
   shortName: "TPL",
-  // TODO: swap to the production domain once it's live, e.g. https://thepioneerlounge.com
+  // TODO: swap to the production domain once thepioneerlounge.com is confirmed live.
   url: "https://thepioneerlounge.vercel.app",
   tagline: "AI enablement for teams that intend to lead.",
   description:
-    "The Pioneer Lounge delivers consultations, workshops, AI hack sprints, and enterprise training programs that turn AI curiosity into shipped work.",
-  email: "hello@thepioneerlounge.com",
+    "The Pioneer Lounge is an AI strategy, workforce enablement, and innovation business helping organizations adopt AI through practical advice, hands-on workshops, and build sprints.",
+  email: "info@thepioneerlounge.com",
+  // Free, 15-minute discovery call. The only booking path on the main site;
+  // paid 1:1 consultations are handled separately via Topmate, off-site.
   calendarUrl: "https://calendly.com/osauzomaureen/consultations",
-  // Paid 1:1 consultation event type, once set up in the Calendly dashboard.
-  calendarPaidUrl: process.env.NEXT_PUBLIC_CALENDLY_PAID_URL,
-  // Stripe Payment Link for the AI Foundations self-serve checkout.
-  // Falls back to the discovery call until the real link is set.
-  stripeFoundationsUrl:
-    process.env.NEXT_PUBLIC_STRIPE_FOUNDATIONS_URL || "/book-a-call",
+  discoveryCopy:
+    "Book a free 15-minute discovery call to help us understand your context and map the right engagement.",
+  slackUrl:
+    "https://join.slack.com/t/thepioneerlounge/shared_invite/zt-4ea1cil74-fuC0xSCnRNuyjdCG3PVNxg",
+  facebookUrl: "https://www.facebook.com/share/g/1FDdkUaQvA/?mibextid=wwXIfr",
+  // Stripe Payment Link for the AI Foundations course, once enrollment is approved and active.
+  // Left unset (and the enrollment CTA inactive) until then.
+  stripeFoundationsUrl: process.env.NEXT_PUBLIC_STRIPE_FOUNDATIONS_URL,
 };
 
 export type NavItem = {
@@ -22,54 +26,43 @@ export type NavItem = {
   description?: string;
 };
 
+// The three core service categories, used consistently across nav, homepage
+// cards, service pages, and FAQs.
 export const serviceNav: NavItem[] = [
   {
-    label: "Consultations",
+    label: "AI Consulting",
     href: "/consultations",
-    description: "1:1 strategic AI guidance for leaders and teams.",
-  },
-  {
-    label: "Workshops",
-    href: "/workshops",
-    description: "Hands-on sessions that build real AI fluency.",
+    description:
+      "Business-first AI strategy, use cases, tool selection, and adoption, including Fractional AI Lead support.",
   },
   {
     label: "AI Hack Sprints",
     href: "/ai-hack-sprints",
-    description: "A focused day to ship a working AI prototype.",
+    description: "Facilitated sessions to build a practical AI prototype.",
   },
   {
-    label: "Ship One Thing",
-    href: "/ship-one-thing",
-    description: "A 2–4 week build for one real AI tool, shipped.",
-  },
-  {
-    label: "Fractional AI Lead",
-    href: "/fractional-ai-lead",
-    description: "Embedded AI leadership, without the full-time hire.",
-  },
-  {
-    label: "Enterprise Program",
-    href: "/enterprise-program",
-    description: "Team-wide AI training for up to 100 employees.",
+    label: "AI Workshops",
+    href: "/workshops",
+    description:
+      "Practical team training, from a single workshop to a tailored enterprise program.",
   },
 ];
 
 export const mainNav: NavItem[] = [
-  ...serviceNav,
-  { label: "Speaking & Media", href: "/speaking-media" },
-  { label: "Events", href: "/events" },
-  { label: "Community", href: "/community" },
+  { label: "Services", href: "/services" },
+  { label: "Our Work", href: "/case-studies" },
   { label: "About", href: "/about" },
+  { label: "Book a Call", href: "/book-a-call" },
 ];
 
 export const footerNav = {
   Services: serviceNav,
   Company: [
     { label: "About", href: "/about" },
-    { label: "Speaking & Media", href: "/speaking-media" },
+    { label: "Our Work", href: "/case-studies" },
     { label: "Events", href: "/events" },
     { label: "Community", href: "/community" },
+    { label: "Partner With Us", href: "/partner-with-us" },
     { label: "Book a Call", href: "/book-a-call" },
   ] as NavItem[],
 };

@@ -39,9 +39,8 @@ export function Hero() {
 
           <Reveal delay={0.16}>
             <p className="mx-auto mt-7 max-w-xl text-balance text-lg leading-relaxed text-white/80 md:text-xl">
-              Consultations, workshops, AI hack sprints, and enterprise
-              training that take your team from talking about AI to running
-              on it.
+              We help teams adopt AI through practical advice, hands-on
+              workshops, and build sprints.
             </p>
           </Reveal>
 
@@ -50,10 +49,10 @@ export function Hero() {
             className="mt-10 flex flex-wrap items-center justify-center gap-4"
           >
             <Button href="/book-a-call" size="lg">
-              Book a discovery call
+              Book a Free Discovery Call
             </Button>
-            <Button href="/consultations" variant="outlineLight" size="lg">
-              Explore our services
+            <Button href="/services" variant="outlineLight" size="lg">
+              Explore Our Services
             </Button>
           </Reveal>
         </div>

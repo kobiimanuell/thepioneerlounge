@@ -23,7 +23,7 @@ import { Reveal } from "@/components/ui/Reveal";
 export const metadata: Metadata = pageMetadata(
   "/ai-hack-sprints",
   "AI Hack Sprints",
-  "A focused, high-energy sprint, half a day to a full day, that takes a team of up to 15 from idea to a working AI prototype. From $8,000."
+  "A focused, high-energy sprint, half a day to a full day, that takes a team of up to 15 from idea to a working AI prototype."
 );
 
 export default function AIHackSprintsPage() {
@@ -32,7 +32,7 @@ export default function AIHackSprintsPage() {
       <PageHero
         eyebrow="AI Hack Sprints"
         title="One day. One real prototype. Zero slideware."
-        description="A focused sprint, half a day to a full day, that takes your team of up to 15 from a rough idea to a working AI prototype, built and demoed by the people who'll actually use it. From $8,000."
+        description="A focused sprint, half a day to a full day, that takes your team of up to 15 from a rough idea to a working AI prototype, built and demoed by the people who'll actually use it."
         cta={
           <>
             <Button href="/book-a-call" size="lg">
@@ -75,7 +75,7 @@ export default function AIHackSprintsPage() {
           <Reveal className="relative aspect-[21/9] overflow-hidden rounded-3xl">
             <Image
               src="/images/hacksprint-banner.jpg"
-              alt="A team collaborating during an AI Hack Sprint"
+              alt="Participants collaborating during a hands-on AI hack sprint"
               fill
               sizes="(min-width: 1024px) 1152px, 100vw"
               className="object-cover"
@@ -88,7 +88,7 @@ export default function AIHackSprintsPage() {
         <Steps
           eyebrow="Format"
           title="One format, built for speed."
-          description="Half a day to a full day, for a team of up to 15, from $8,000. The sprint is tightly structured so momentum never stalls."
+          description="Half a day to a full day, for a team of up to 15. The sprint is tightly structured so momentum never stalls."
           dark
           steps={[
             {
@@ -121,13 +121,13 @@ export default function AIHackSprintsPage() {
                 Ready to go further?
               </h3>
               <p className="mt-2 max-w-xl text-sm leading-relaxed text-paper-dim">
-                Your sprint fee is credited toward Ship One Thing if you go
-                ahead within 30 days, so a strong prototype can turn straight
-                into a shipped product.
+                A strong prototype can turn straight into a shipped product.
+                Ship One Thing takes it from validated idea to something your
+                team uses every day.
               </p>
             </div>
             <Button
-              href="/ship-one-thing"
+              href="/workshops#formats"
               variant="outline"
               className="shrink-0"
               showArrow
@@ -158,7 +158,7 @@ export default function AIHackSprintsPage() {
             icon: <IconGlyph icon={Flag} />,
             title: "A clear next step",
             description:
-              "An honest read on what it takes to go from prototype to shipped product, credited toward Ship One Thing.",
+              "An honest read on what it takes to go from prototype to shipped product with Ship One Thing.",
           },
         ]}
       />
@@ -193,7 +193,7 @@ export default function AIHackSprintsPage() {
           {
             question: "How is this different from Ship One Thing?",
             answer:
-              "A Hack Sprint is a single focused day to validate one idea as a working prototype. Ship One Thing is a 2–4 week engagement to turn that idea into a product your team actually uses every day. Your sprint fee is credited toward it if you go ahead within 30 days.",
+              "A Hack Sprint is a single focused day to validate one idea as a working prototype. Ship One Thing, one of our AI Workshops formats, is a multi-week engagement to turn that idea into a product your team actually uses every day.",
           },
         ]}
       />

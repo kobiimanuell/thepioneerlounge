@@ -13,6 +13,7 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { EmailSignup } from "@/components/sections/EmailSignup";
 import { pageMetadata } from "@/lib/metadata";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata(
   "/community",
@@ -56,8 +57,8 @@ export default function CommunityPage() {
         description="The Pioneer Lounge community is where practitioners trade what's actually working, free to join, with a deeper tier for those who want more."
         cta={
           <>
-            <Button href="#free" size="lg">
-              Join for free
+            <Button href={site.slackUrl} size="lg">
+              Join the Free Community
             </Button>
             <Button href="#membership" variant="outlineLight" size="lg">
               See membership benefits
@@ -88,7 +89,35 @@ export default function CommunityPage() {
               </div>
 
               <div className="mt-6 flex flex-col divide-y divide-line border-t border-line">
-                <div className="flex items-center gap-4 py-5">
+                <a
+                  href={site.slackUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 py-5"
+                >
+                  <Hash
+                    className="size-5 shrink-0 text-ember-500"
+                    strokeWidth={1.75}
+                  />
+                  <div className="flex-1">
+                    <div className="font-medium text-paper">
+                      Slack Workspace
+                    </div>
+                    <div className="text-sm text-paper-dim">
+                      Real-time chat for quick questions and faster feedback.
+                    </div>
+                  </div>
+                  <span className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-ember-500">
+                    Join
+                    <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </span>
+                </a>
+                <a
+                  href={site.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 py-5"
+                >
                   <Users2
                     className="size-5 shrink-0 text-ember-500/50"
                     strokeWidth={1.75}
@@ -101,27 +130,11 @@ export default function CommunityPage() {
                       Discussions, resources, and announcements.
                     </div>
                   </div>
-                  <span className="text-xs font-medium uppercase tracking-wide text-paper-dim/50">
-                    Coming soon
+                  <span className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-paper-dim">
+                    Join
+                    <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
-                </div>
-                <div className="flex items-center gap-4 py-5">
-                  <Hash
-                    className="size-5 shrink-0 text-ember-500/50"
-                    strokeWidth={1.75}
-                  />
-                  <div className="flex-1">
-                    <div className="font-medium text-paper">
-                      Slack Workspace
-                    </div>
-                    <div className="text-sm text-paper-dim">
-                      Real-time chat for quick questions and faster feedback.
-                    </div>
-                  </div>
-                  <span className="text-xs font-medium uppercase tracking-wide text-paper-dim/50">
-                    Coming soon
-                  </span>
-                </div>
+                </a>
               </div>
 
               <Link
@@ -138,9 +151,9 @@ export default function CommunityPage() {
 
       <div id="membership">
         <IconGrid
-          eyebrow="Membership"
+          eyebrow="Pioneer Plus"
           title="For practitioners who want more than the free tier."
-          description="Membership is sold on access and benefit, not headcount. Here's exactly what you get."
+          description="Pioneer Plus membership isn't open for enrollment yet. Here's what's planned, request access to be notified when it is."
           columns={2}
           items={paidBenefits}
         />
@@ -162,8 +175,8 @@ export default function CommunityPage() {
                   Ready to go deeper?
                 </h3>
                 <p className="mt-1.5 max-w-md text-sm leading-relaxed text-paper-dim">
-                  Request access to membership and we&apos;ll follow up with
-                  pricing and onboarding details.
+                  Pioneer Plus isn&apos;t open yet. Request access and
+                  we&apos;ll reach out as soon as it is.
                 </p>
               </div>
             </div>
@@ -202,7 +215,7 @@ export default function CommunityPage() {
           {
             question: "Can my whole team join?",
             answer:
-              "Individual members are welcome from any team. If you're looking to bring your whole organization into a structured program, see the Enterprise Program instead.",
+              "Individual members are welcome from any team. If you're looking to bring your whole organization into a structured program, ask about a Custom Enterprise Program instead.",
           },
         ]}
       />
@@ -210,7 +223,7 @@ export default function CommunityPage() {
       <CTASection
         title="Come build alongside people doing the same thing."
         description="Join the free community today, or ask about membership."
-        primary={{ label: "Join for free", href: "#free" }}
+        primary={{ label: "Join the Free Community", href: site.slackUrl }}
         secondary={{ label: "Request membership", href: "/book-a-call" }}
       />
     </>

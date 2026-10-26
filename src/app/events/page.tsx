@@ -11,7 +11,8 @@ import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/sections/CTASection";
 import { EventSlideshow } from "@/components/sections/EventSlideshow";
 import { pageMetadata } from "@/lib/metadata";
-import { getUpcomingEvents, getPastEvents } from "@/lib/events";
+import { getUpcomingEvents, getPastEvents, eventJsonLd } from "@/lib/events";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata(
   "/events",
@@ -25,9 +26,22 @@ async function EventLists() {
   await connection();
   const upcoming = getUpcomingEvents();
   const past = getPastEvents();
+  const jsonLd = [
+    ...upcoming.map((e) => eventJsonLd(e, false, site.url)),
+    ...past.map((e) => eventJsonLd(e, true, site.url)),
+  ];
 
   return (
     <>
+      {jsonLd.map((item, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}
+        />
+      ))}
+
       <section className="border-b border-line py-24 lg:py-32">
         <Container>
           <SectionHeading
@@ -160,9 +174,9 @@ export default function EventsPage() {
       </Suspense>
 
       <CTASection
-        title="Want us to speak at or sponsor your event?"
-        description="Book a call and tell us about it."
-        secondary={{ label: "See speaking topics", href: "/speaking-media" }}
+        title="Want to co-host or sponsor an event with us?"
+        description="Book a free discovery call and tell us about it."
+        secondary={{ label: "Partner with us", href: "/partner-with-us" }}
       />
     </>
   );

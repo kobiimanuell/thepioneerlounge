@@ -6,10 +6,7 @@ export const contentType = ogImageContentType;
 
 export default async function Image() {
   return new ImageResponse(
-    ogImageElement(
-      "Team-wide AI fluency, rolled out like a real program.",
-      "Enterprise Program"
-    ),
+    ogImageElement("Three ways to work with us.", "Services"),
     { ...size }
   );
 }

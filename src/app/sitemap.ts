@@ -6,13 +6,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes: { path: string; priority: number; changeFrequency: "weekly" | "monthly" }[] = [
     { path: "/", priority: 1, changeFrequency: "weekly" },
+    { path: "/services", priority: 0.9, changeFrequency: "monthly" },
     { path: "/consultations", priority: 0.9, changeFrequency: "monthly" },
     { path: "/workshops", priority: 0.9, changeFrequency: "monthly" },
     { path: "/ai-hack-sprints", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/ship-one-thing", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/fractional-ai-lead", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/enterprise-program", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/speaking-media", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/case-studies", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/partner-with-us", priority: 0.7, changeFrequency: "monthly" },
     { path: "/events", priority: 0.7, changeFrequency: "weekly" },
     { path: "/community", priority: 0.7, changeFrequency: "monthly" },
     { path: "/about", priority: 0.6, changeFrequency: "monthly" },

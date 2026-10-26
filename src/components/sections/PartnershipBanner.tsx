@@ -26,7 +26,7 @@ export function PartnershipBanner({
               </p>
             </div>
           </div>
-          <Button href="/book-a-call" variant="outline" className="shrink-0">
+          <Button href="/partner-with-us" variant="outline" className="shrink-0">
             Discuss a partnership
           </Button>
         </Reveal>
