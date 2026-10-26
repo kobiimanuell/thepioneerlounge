@@ -7,6 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/sections/CTASection";
 import { pageMetadata } from "@/lib/metadata";
+import { WARM_PATTERNS } from "@/components/sections/home/mosaicPattern";
 
 export const metadata: Metadata = pageMetadata(
   "/services",
@@ -105,31 +106,36 @@ export default function ServicesPage() {
               </Reveal>
 
               <Reveal delay={i * 0.05 + 0.08}>
-                <div className="rounded-3xl bg-ink-900/50 p-8 lg:p-10">
-                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-ember-500">
-                    Expected outcomes
-                  </p>
-                  <ul className="mt-6 flex flex-col gap-3.5">
-                    {service.outcomes.map((outcome) => (
-                      <li
-                        key={outcome}
-                        className="flex items-start gap-3 text-sm text-paper-dim"
-                      >
-                        <Check
-                          className="mt-0.5 size-4 shrink-0 text-ember-500"
-                          strokeWidth={2.5}
-                        />
-                        {outcome}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    href="/book-a-call"
-                    variant="outline"
-                    className="mt-8 w-full"
-                  >
-                    Book a discovery call
-                  </Button>
+                <div
+                  className="rounded-tl-[24px] pl-6 pt-6"
+                  style={WARM_PATTERNS[i % WARM_PATTERNS.length]}
+                >
+                  <div className="rounded-tl-[18px] bg-ink-950/90 p-8 backdrop-blur-xl lg:p-10">
+                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-ember-500">
+                      Expected outcomes
+                    </p>
+                    <ul className="mt-6 flex flex-col gap-3.5">
+                      {service.outcomes.map((outcome) => (
+                        <li
+                          key={outcome}
+                          className="flex items-start gap-3 text-sm text-paper-dim"
+                        >
+                          <Check
+                            className="mt-0.5 size-4 shrink-0 text-ember-500"
+                            strokeWidth={2.5}
+                          />
+                          {outcome}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button
+                      href="/book-a-call"
+                      variant="outline"
+                      className="mt-8 w-full"
+                    >
+                      Book a discovery call
+                    </Button>
+                  </div>
                 </div>
               </Reveal>
             </div>

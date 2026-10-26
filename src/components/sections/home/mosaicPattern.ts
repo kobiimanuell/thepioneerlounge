@@ -33,3 +33,11 @@ export function mosaicPattern([c0, c1, c2]: [string, string, string]) {
 export const EMBER_PATTERN = mosaicPattern(["#d6470c", "#ff7a3d", "#f25c19"]);
 export const AMBER_PATTERN = mosaicPattern(["#b45309", "#fbbf24", "#f59e0b"]);
 export const RUST_PATTERN = mosaicPattern(["#9a3412", "#fb923c", "#ea580c"]);
+export const COPPER_PATTERN = mosaicPattern(["#92400e", "#fdba74", "#c2410c"]);
+
+export const WARM_PATTERNS = [
+  EMBER_PATTERN,
+  AMBER_PATTERN,
+  RUST_PATTERN,
+  COPPER_PATTERN,
+];

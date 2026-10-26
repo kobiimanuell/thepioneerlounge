@@ -9,6 +9,7 @@ import { IconGlyph } from "@/components/ui/IconGlyph";
 import { CTASection } from "@/components/sections/CTASection";
 import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
+import { WARM_PATTERNS } from "@/components/sections/home/mosaicPattern";
 
 export const metadata: Metadata = pageMetadata(
   "/partner-with-us",
@@ -122,20 +123,25 @@ export default function PartnerWithUsPage() {
             title="Partnership opportunities."
           />
 
-          <div className="mt-14 grid grid-cols-1 gap-10 border-t border-line pt-10 md:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
             {opportunities.map((item, i) => (
-              <Reveal
-                key={item.title}
-                delay={i * 0.06}
-                className="flex flex-col gap-4"
-              >
-                <IconGlyph icon={item.icon} />
-                <h3 className="text-lg font-semibold text-paper">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-paper-dim">
-                  {item.description}
-                </p>
+              <Reveal key={item.title} delay={i * 0.06} className="h-full">
+                <div
+                  className="h-full rounded-tl-[20px] pl-5 pt-5"
+                  style={WARM_PATTERNS[i % WARM_PATTERNS.length]}
+                >
+                  <div className="flex h-full flex-col gap-3 rounded-tl-[14px] bg-ink-950/90 p-6 backdrop-blur-xl">
+                    <div className="flex size-10 shrink-0 items-center justify-center text-ember-500">
+                      <IconGlyph icon={item.icon} />
+                    </div>
+                    <h3 className="text-lg font-semibold text-paper">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-paper-dim">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>

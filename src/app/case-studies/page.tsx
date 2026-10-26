@@ -25,7 +25,8 @@ const caseStudies = [
     outcome:
       "Participants gained hands-on experience with AI-assisted website creation. Learner numbers, completed projects, and feedback will be added once verified.",
     cta: { label: "Explore AI Workshops", href: "/workshops" },
-    image: undefined,
+    image: "/images/workshops-banner.jpg",
+    alt: "Professionals learning to apply AI tools during an interactive training session",
   },
   {
     name: "Specific Engineering Solutions",
@@ -38,7 +39,8 @@ const caseStudies = [
     outcome:
       "Developed a practical roadmap for incorporating AI into existing business development workflows. This was an advisory engagement; we don't claim a measured revenue or lead-conversion improvement without supporting evidence.",
     cta: { label: "Book a Free Discovery Call", href: "/book-a-call" },
-    image: undefined,
+    image: "/images/consultations-banner.jpg",
+    alt: "A Pioneer Lounge strategic consultation in progress",
   },
   {
     name: "AI Hack Sprints",
@@ -52,6 +54,7 @@ const caseStudies = [
       "Participants worked on practical AI projects and demonstrations. Participation and completion figures will be published once verified against event records.",
     cta: { label: "Explore AI Hack Sprints", href: "/ai-hack-sprints" },
     image: "/images/events/heygen-hackathon/heygen-hackathon-03.jpg",
+    alt: "Participants collaborating during a hands-on AI hack sprint",
   },
 ];
 
@@ -85,7 +88,7 @@ export default function CaseStudiesPage() {
                   >
                     <Image
                       src={study.image}
-                      alt="Participants collaborating during a hands-on AI hack sprint"
+                      alt={study.alt}
                       fill
                       sizes="(min-width: 1024px) 50vw, 100vw"
                       className="object-cover"
