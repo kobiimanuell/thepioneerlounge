@@ -1,7 +1,11 @@
-import { Quote } from "lucide-react";
+"use client";
+
+import { useRef, useState } from "react";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Container } from "../../ui/Container";
 import { SectionHeading } from "../../ui/SectionHeading";
 import { Reveal } from "../../ui/Reveal";
+import clsx from "clsx";
 
 const testimonials = [
   {
@@ -48,36 +52,112 @@ const testimonials = [
 ];
 
 export function TestimonialsSection() {
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const [index, setIndex] = useState(0);
+
+  const goTo = (i: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const clamped = (i + testimonials.length) % testimonials.length;
+    track.scrollTo({ left: clamped * track.clientWidth, behavior: "smooth" });
+    setIndex(clamped);
+  };
+
+  const onScroll = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    const i = Math.round(track.scrollLeft / track.clientWidth);
+    if (i !== index) setIndex(i);
+  };
+
   return (
     <section className="border-b border-line py-24 lg:py-32">
       <Container>
-        <SectionHeading
-          eyebrow="What people say"
-          title="We are spoken of kindly."
-        />
-
-        <div className="mt-14 grid grid-cols-1 gap-10 border-t border-line pt-10 md:grid-cols-3 md:gap-8">
-          {testimonials.map((t, i) => (
-            <Reveal
-              key={t.name}
-              delay={i * 0.06}
-              className="flex flex-col gap-5"
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <SectionHeading
+            eyebrow="What people say"
+            title="We are spoken of kindly."
+          />
+          <div className="hidden shrink-0 items-center gap-2 sm:flex">
+            <button
+              onClick={() => goTo(index - 1)}
+              aria-label="Previous testimonial"
+              className="flex size-10 items-center justify-center rounded-full border border-line text-paper-dim transition-colors hover:border-ember-500/60 hover:text-paper"
             >
-              <Quote className="size-5 text-ember-500/60" />
-              <p className="flex-1 text-sm leading-relaxed text-paper-dim">
-                {t.quote}
-              </p>
-              <div>
-                <div className="text-sm font-medium text-paper">{t.name}</div>
-                {t.role && (
-                  <div className="mt-0.5 text-xs text-paper-dim/70">
-                    {t.role}
-                  </div>
-                )}
-              </div>
-            </Reveal>
-          ))}
+              <ChevronLeft className="size-4" />
+            </button>
+            <button
+              onClick={() => goTo(index + 1)}
+              aria-label="Next testimonial"
+              className="flex size-10 items-center justify-center rounded-full border border-line text-paper-dim transition-colors hover:border-ember-500/60 hover:text-paper"
+            >
+              <ChevronRight className="size-4" />
+            </button>
+          </div>
         </div>
+
+        <Reveal delay={0.1} className="mt-14 border-t border-line pt-10">
+          <div
+            ref={trackRef}
+            onScroll={onScroll}
+            className="no-scrollbar flex snap-x snap-mandatory overflow-x-auto scroll-smooth"
+          >
+            {testimonials.map((t) => (
+              <div
+                key={t.name}
+                className="flex w-full shrink-0 snap-center justify-center px-1"
+              >
+                <div className="flex max-w-xl flex-col items-center gap-5 text-center">
+                  <Quote className="size-6 text-ember-500/60" />
+                  <p className="text-balance text-lg leading-relaxed text-paper-dim">
+                    {t.quote}
+                  </p>
+                  <div>
+                    <div className="text-sm font-medium text-paper">
+                      {t.name}
+                    </div>
+                    {t.role && (
+                      <div className="mt-0.5 text-xs text-paper-dim/70">
+                        {t.role}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex items-center justify-center gap-2">
+            {testimonials.map((t, i) => (
+              <button
+                key={t.name}
+                onClick={() => goTo(i)}
+                aria-label={`Go to testimonial ${i + 1}`}
+                className={clsx(
+                  "h-1.5 rounded-full transition-all duration-300",
+                  i === index ? "w-6 bg-ember-500" : "w-1.5 bg-ink-700"
+                )}
+              />
+            ))}
+          </div>
+
+          <div className="mt-6 flex items-center justify-center gap-3 sm:hidden">
+            <button
+              onClick={() => goTo(index - 1)}
+              aria-label="Previous testimonial"
+              className="flex size-10 items-center justify-center rounded-full border border-line text-paper-dim transition-colors hover:border-ember-500/60 hover:text-paper"
+            >
+              <ChevronLeft className="size-4" />
+            </button>
+            <button
+              onClick={() => goTo(index + 1)}
+              aria-label="Next testimonial"
+              className="flex size-10 items-center justify-center rounded-full border border-line text-paper-dim transition-colors hover:border-ember-500/60 hover:text-paper"
+            >
+              <ChevronRight className="size-4" />
+            </button>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );
