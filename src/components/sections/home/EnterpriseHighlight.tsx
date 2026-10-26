@@ -41,15 +41,16 @@ export function EnterpriseHighlight() {
               For organizations
             </div>
             <h2 className="mt-6 text-balance text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
-              The Enterprise Program: team-wide AI fluency, built to measure.
+              Custom Enterprise Program: team-wide AI fluency, built to measure.
             </h2>
             <p className="mt-5 max-w-lg text-balance leading-relaxed text-white/75">
-              A structured training program for up to 100 employees, with
-              two tiers, built-in community access, and reporting your
-              leadership team can actually use.
+              A tailored training program for up to 100 employees, combining
+              learning, strategy, and implementation support, with built-in
+              community access and reporting your leadership team can
+              actually use.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="/enterprise-program" size="lg">
+              <Button href="/workshops#formats" size="lg">
                 <span className="sm:hidden">Explore</span>
                 <span className="hidden sm:inline">Explore the Enterprise Program</span>
               </Button>

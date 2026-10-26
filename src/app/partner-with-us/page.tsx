@@ -8,12 +8,19 @@ import { Button } from "@/components/ui/Button";
 import { IconGlyph } from "@/components/ui/IconGlyph";
 import { CTASection } from "@/components/sections/CTASection";
 import { pageMetadata } from "@/lib/metadata";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata(
   "/partner-with-us",
   "Partner With Us",
   "We work with technology platforms, educators, businesses, and innovation communities to make practical AI adoption more accessible and impactful."
 );
+
+const partnershipMailto = `mailto:${site.email}?subject=${encodeURIComponent(
+  "Partnership inquiry"
+)}&body=${encodeURIComponent(
+  `Organization:\n\nPartnership type (Product / Specialist / Delivery):\n\nWhat we'd like to do together:\n\nTimeline:\n`
+)}`;
 
 const orgGroups = [
   {
@@ -70,7 +77,7 @@ export default function PartnerWithUsPage() {
         title="Our Ecosystem of Collaboration"
         description="We work with technology platforms, educators, businesses, and innovation communities to make practical AI adoption more accessible and impactful."
         cta={
-          <Button href="/book-a-call" size="lg">
+          <Button href={partnershipMailto} size="lg">
             Explore a partnership
           </Button>
         }
@@ -157,10 +164,9 @@ export default function PartnerWithUsPage() {
           <Reveal delay={0.25} className="mt-10 flex flex-col items-center gap-4 text-center">
             <p className="max-w-lg text-sm leading-relaxed text-paper-dim">
               Tell us about your organization, the kind of partnership you have
-              in mind, and your timeline on the call, we&apos;ll take it from
-              there.
+              in mind, and your timeline, and we&apos;ll take it from there.
             </p>
-            <Button href="/book-a-call" size="lg">
+            <Button href={partnershipMailto} size="lg">
               Explore a partnership
             </Button>
           </Reveal>

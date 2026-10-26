@@ -20,7 +20,7 @@ const panels = [
   },
   {
     key: "workshops",
-    label: "Workshops",
+    label: "AI Workshops",
     title: "Hands-on sessions your team actually finishes.",
     description:
       "Live, facilitated sessions built around your team's real tools and real workflows, not generic slides.",
@@ -29,7 +29,7 @@ const panels = [
   },
   {
     key: "enterprise",
-    label: "Enterprise Program",
+    label: "Custom Enterprise Program",
     title: "A rollout built for a hundred people, not ten.",
     description:
       "Structured, cohort-based training that scales AI fluency across an entire org without losing rigor.",
