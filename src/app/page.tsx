@@ -6,6 +6,7 @@ import { SelectedWork } from "@/components/sections/home/SelectedWork";
 import { VideoHighlight } from "@/components/sections/home/VideoHighlight";
 import { AudienceScroll } from "@/components/sections/home/AudienceScroll";
 import { EnterpriseHighlight } from "@/components/sections/home/EnterpriseHighlight";
+import { PioneerHighlight } from "@/components/sections/home/PioneerHighlight";
 import { EpisodesSection } from "@/components/sections/home/EpisodesSection";
 import { TestimonialsSection } from "@/components/sections/home/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
@@ -22,6 +23,7 @@ export default function Home() {
       <VideoHighlight />
       <AudienceScroll />
       <EnterpriseHighlight />
+      <PioneerHighlight />
       <EpisodesSection />
       <TestimonialsSection />
       <FAQSection

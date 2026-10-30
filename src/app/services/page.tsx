@@ -143,6 +143,80 @@ export default function ServicesPage() {
         </section>
       ))}
 
+      <section className="border-b border-line py-20 lg:py-28">
+        <Container>
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+            <Reveal>
+              <SectionHeading
+                eyebrow="New"
+                title="Pioneer"
+                description="A floating assistant for your own website."
+              />
+              <p className="mt-6 max-w-xl text-sm leading-relaxed text-paper-dim">
+                Pioneer is a product we built, and use ourselves: a floating
+                search widget any company can add to their site with a single
+                script tag. Visitors ask questions in plain language and get
+                answers grounded in that site&apos;s actual content, no
+                digging through menus or contact forms.
+              </p>
+              <p className="mt-6 text-sm font-medium text-paper">
+                Who it&apos;s for
+              </p>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-paper-dim">
+                Companies with a website full of useful information that
+                visitors never find, product docs, pricing, policies, case
+                studies, buried a few clicks deep in the navigation.
+              </p>
+              <Button href="/book-a-call" className="mt-8" showArrow>
+                Talk to us about Pioneer
+              </Button>
+            </Reveal>
+
+            <Reveal delay={0.08}>
+              <div
+                className="rounded-tl-[24px] pl-6 pt-6"
+                style={WARM_PATTERNS[3 % WARM_PATTERNS.length]}
+              >
+                <div className="rounded-tl-[18px] bg-ink-950/90 p-8 backdrop-blur-xl lg:p-10">
+                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-ember-500">
+                    How it works
+                  </p>
+                  <ul className="mt-6 flex flex-col gap-3.5">
+                    {[
+                      "One script tag in the site header, no rebuild required",
+                      "Pioneer indexes the live page automatically and stays current",
+                      "Answers are grounded only in real content from that site",
+                    ].map((outcome) => (
+                      <li
+                        key={outcome}
+                        className="flex items-start gap-3 text-sm text-paper-dim"
+                      >
+                        <Check
+                          className="mt-0.5 size-4 shrink-0 text-ember-500"
+                          strokeWidth={2.5}
+                        />
+                        {outcome}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-6 text-sm leading-relaxed text-paper-dim">
+                    You&apos;re looking at an early preview of it right now,
+                    click the icon in the corner of this page to try it.
+                  </p>
+                  <Button
+                    href="/book-a-call"
+                    variant="outline"
+                    className="mt-8 w-full"
+                  >
+                    Interested in Pioneer for your company?
+                  </Button>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
       <CTASection
         title="Not sure which one fits?"
         description="Book a free 15-minute discovery call and we'll help you map the right engagement."
