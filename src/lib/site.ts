@@ -1,8 +1,7 @@
 export const site = {
   name: "The Pioneer Lounge",
   shortName: "TPL",
-  // TODO: swap to the production domain once thepioneerlounge.com is confirmed live.
-  url: "https://thepioneerlounge.vercel.app",
+  url: "https://thepioneerlounge.com",
   tagline: "AI enablement for teams that intend to lead.",
   description:
     "The Pioneer Lounge is an AI strategy, workforce enablement, and innovation business helping organizations adopt AI through practical advice, hands-on workshops, and build sprints.",

@@ -87,7 +87,7 @@ export function ogImageElement(title: string, eyebrow?: string) {
           fontWeight: 500,
         }}
       >
-        thepioneerlounge.vercel.app
+        thepioneerlounge.com
       </div>
     </div>
   );
