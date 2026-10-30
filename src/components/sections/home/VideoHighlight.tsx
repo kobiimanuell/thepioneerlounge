@@ -24,7 +24,7 @@ export function VideoHighlight() {
           playsInline
           controls
           preload="metadata"
-          className="h-auto w-full lg:mx-auto lg:w-1/2"
+          className="h-auto w-full lg:mx-auto lg:h-screen lg:w-auto"
         />
       </Reveal>
     </section>
