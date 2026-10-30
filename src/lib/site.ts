@@ -14,9 +14,6 @@ export const site = {
   slackUrl:
     "https://join.slack.com/t/thepioneerlounge/shared_invite/zt-4ea1cil74-fuC0xSCnRNuyjdCG3PVNxg",
   facebookUrl: "https://www.facebook.com/share/g/1FDdkUaQvA/?mibextid=wwXIfr",
-  // Stripe Payment Link for the AI Foundations course, once enrollment is approved and active.
-  // Left unset (and the enrollment CTA inactive) until then.
-  stripeFoundationsUrl: process.env.NEXT_PUBLIC_STRIPE_FOUNDATIONS_URL,
 };
 
 export type NavItem = {

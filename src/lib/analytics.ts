@@ -5,7 +5,6 @@ import { track as vercelTrack } from "@vercel/analytics";
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
-    lintrk?: (...args: unknown[]) => void;
   }
 }
 
@@ -25,12 +24,5 @@ export function trackEvent(
 
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", name, params);
-  }
-}
-
-/** Fires a LinkedIn Insight Tag conversion. Requires a conversion ID from the LinkedIn Campaign Manager. */
-export function trackLinkedInConversion(conversionId: string) {
-  if (typeof window !== "undefined" && window.lintrk) {
-    window.lintrk("track", { conversion_id: conversionId });
   }
 }
