@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { IconGlyph } from "@/components/ui/IconGlyph";
 import { pageMetadata } from "@/lib/metadata";
 import { Compass, Heart, ShieldCheck, Flame } from "lucide-react";
@@ -55,7 +56,23 @@ export default function AboutPage() {
         <Container>
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <Reveal>
-              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink-900" />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink-900">
+                <Image
+                  src="/images/founder-maureen-osauzo.jpg"
+                  alt="Maureen Osauzo, founder of The Pioneer Lounge"
+                  fill
+                  sizes="(min-width: 1024px) 480px, 100vw"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute bottom-6 left-6 inline-flex items-center gap-2 rounded-full bg-ink-950/90 px-4 py-2 backdrop-blur-sm">
+                  <span className="size-1.5 shrink-0 rounded-full bg-ember-500" />
+                  <span className="text-sm font-medium text-paper">
+                    Maureen Osauzo
+                  </span>
+                  <span className="text-sm text-paper-dim">· Founder</span>
+                </div>
+              </div>
             </Reveal>
 
             <div className="flex flex-col gap-6">
