@@ -4,7 +4,7 @@ import { ProofStrip } from "@/components/sections/home/ProofStrip";
 import { ServiceCards } from "@/components/sections/home/ServiceCards";
 import { SelectedWork } from "@/components/sections/home/SelectedWork";
 import { VideoHighlight } from "@/components/sections/home/VideoHighlight";
-// import { AudienceScroll } from "@/components/sections/home/AudienceScroll";
+import { AudienceScroll } from "@/components/sections/home/AudienceScroll";
 import { EnterpriseHighlight } from "@/components/sections/home/EnterpriseHighlight";
 import { PioneerHighlight } from "@/components/sections/home/PioneerHighlight";
 import { EpisodesSection } from "@/components/sections/home/EpisodesSection";
@@ -21,8 +21,7 @@ export default function Home() {
       <ServiceCards />
       <SelectedWork />
       <VideoHighlight />
-      {/* Commented out for now, per founder request: */}
-      {/* <AudienceScroll /> */}
+      <AudienceScroll />
       <EnterpriseHighlight />
       <PioneerHighlight />
       <EpisodesSection />

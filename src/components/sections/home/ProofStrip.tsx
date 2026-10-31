@@ -46,7 +46,7 @@ export function ProofStrip() {
             <LogoMarquee />
           </div>
         </Reveal>
-
+{/* 
         <RevealGroup
           className="mt-14 flex flex-wrap items-center justify-center gap-3"
           stagger={0.05}
@@ -66,7 +66,7 @@ export function ProofStrip() {
               </span>
             </motion.span>
           ))}
-        </RevealGroup>
+        </RevealGroup> */}
       </Container>
     </section>
   );
