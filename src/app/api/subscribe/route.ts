@@ -103,7 +103,7 @@ export async function POST(request: Request) {
   // see an error because either of these had a hiccup.
   await sendMessage({
     from: fromEmail,
-    to: "info@thepioneerlounge.com",
+    to: "admin@thepioneerlounge.com",
     subject: "New AI Readiness Checklist signup",
     text: `Name: ${name || "(not provided)"}\nEmail: ${email}`,
   }).catch((err) => {

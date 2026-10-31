@@ -9,13 +9,14 @@ const clients: Client[] = [
   { name: "Microsoft", logo: "/brand/clients/microsoft.svg" },
   { name: "Manus", logo: "/brand/clients/manus.ico" },
   { name: "HeyGen", logo: "/brand/clients/heygen.ico" },
-  { name: "BrainStation" },
-  { name: "Clay" },
-  { name: "interactED" },
-  { name: "Specific Engineering Solutions" },
-  { name: "Dress for Success" },
-  { name: "Ethos Lab" },
-  { name: "WIT Regatta" },
+  { name: "BrainStation", logo: "/brand/clients/brainstation.png" },
+  { name: "Clay", logo: "/brand/clients/clay.png" },
+  // No logo on file yet, commented out until we have one:
+  // { name: "interactED" },
+  // { name: "Specific Engineering Solutions" },
+  // { name: "Dress for Success" },
+  { name: "Ethos Lab", logo: "/brand/clients/ethoslab.png" },
+  { name: "WIT Regatta", logo: "/brand/clients/witregatta.png" },
 ];
 
 export function LogoMarquee() {

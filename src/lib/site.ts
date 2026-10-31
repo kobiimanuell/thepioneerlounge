@@ -5,7 +5,7 @@ export const site = {
   tagline: "AI enablement for teams that intend to lead.",
   description:
     "The Pioneer Lounge is an AI strategy, workforce enablement, and innovation business helping organizations adopt AI through practical advice, hands-on workshops, and build sprints.",
-  email: "info@thepioneerlounge.com",
+  email: "admin@thepioneerlounge.com",
   // Free, 15-minute discovery call. The only booking path on the main site;
   // paid 1:1 consultations are handled separately via Topmate, off-site.
   calendarUrl: "https://calendly.com/osauzomaureen/consultations",
