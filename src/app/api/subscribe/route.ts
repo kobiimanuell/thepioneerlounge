@@ -25,19 +25,24 @@ import { NextResponse } from "next/server";
  * visitors) but nothing is actually sent, so don't rely on it collecting
  * real leads yet.
  *
- * The checklist email body below is placeholder copy. Swap both
- * CHECKLIST_EMAIL_BODY (plain-text fallback) and the body passed into
- * CHECKLIST_EMAIL_HTML for the real "AI Readiness Checklist" content
- * once it exists.
+ * The actual checklist is the PDF at public/TPL_AI_Readiness_Checklist.pdf,
+ * attached to the email. It's fetched from the live site's own public URL
+ * rather than read off disk, since Vercel's serverless bundling doesn't
+ * reliably carry arbitrary public/ files into the function at runtime, a
+ * plain HTTP fetch sidesteps that entirely.
  */
+
+const CHECKLIST_PDF_URL =
+  "https://www.thepioneerlounge.com/TPL_AI_Readiness_Checklist.pdf";
+const CHECKLIST_PDF_FILENAME = "The Pioneer Lounge - AI Readiness Checklist.pdf";
 
 const CHECKLIST_EMAIL_BODY = `Thanks for requesting the AI Readiness Checklist!
 
-(Placeholder: the real checklist content goes here once it's finalized.)
+It's attached to this email as a PDF, a 5-minute self-check to see where you actually stand before you spend a dollar on tools or training.
 
 If you have any questions in the meantime, just reply to this email.
 
-— The Pioneer Lounge`;
+The Pioneer Lounge`;
 
 /** Wraps a block of email-safe HTML in TPL's branded header/footer shell. */
 function brandedEmailHtml(bodyHtml: string): string {
@@ -75,7 +80,7 @@ function brandedEmailHtml(bodyHtml: string): string {
 const CHECKLIST_EMAIL_HTML = brandedEmailHtml(`
   <h1 style="margin:0 0 16px; font-size:20px; font-weight:600; color:#16140f;">Your AI Readiness Checklist</h1>
   <p style="margin:0 0 16px;">Thanks for requesting the AI Readiness Checklist!</p>
-  <p style="margin:0 0 16px; padding:16px; background:#f3f0e9; border-radius:8px; color:#625d53; font-style:italic;">(Placeholder: the real checklist content goes here once it's finalized.)</p>
+  <p style="margin:0 0 16px;">It's attached to this email as a PDF, a 5-minute self-check to see where you actually stand before you spend a dollar on tools or training.</p>
   <p style="margin:0 0 16px;">If you have any questions in the meantime, just reply to this email.</p>
   <p style="margin:0; color:#625d53;">The Pioneer Lounge</p>
 `);
@@ -107,15 +112,35 @@ export async function POST(request: Request) {
     process.env.MAILGUN_FROM_EMAIL || `The Pioneer Lounge <hello@${domain}>`;
   const auth = `Basic ${Buffer.from(`api:${apiKey}`).toString("base64")}`;
 
-  async function sendMessage(params: Record<string, string>) {
-    const form = new URLSearchParams(params);
-    const res = await fetch(`${baseUrl}/${domain}/messages`, {
-      method: "POST",
-      headers: {
+  async function sendMessage(
+    params: Record<string, string>,
+    attachment?: { filename: string; data: ArrayBuffer; contentType: string }
+  ) {
+    let body: BodyInit;
+    let headers: Record<string, string>;
+
+    if (attachment) {
+      const form = new FormData();
+      for (const [key, value] of Object.entries(params)) form.append(key, value);
+      form.append(
+        "attachment",
+        new Blob([attachment.data], { type: attachment.contentType }),
+        attachment.filename
+      );
+      body = form;
+      headers = { Authorization: auth };
+    } else {
+      body = new URLSearchParams(params);
+      headers = {
         Authorization: auth,
         "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: form,
+      };
+    }
+
+    const res = await fetch(`${baseUrl}/${domain}/messages`, {
+      method: "POST",
+      headers,
+      body,
     });
     if (!res.ok) {
       const text = await res.text().catch(() => "");
@@ -126,13 +151,22 @@ export async function POST(request: Request) {
   // The checklist delivery is the one thing the visitor is actually
   // waiting on, so its failure is reported back to them.
   try {
-    await sendMessage({
-      from: fromEmail,
-      to: name ? `${name} <${email}>` : email,
-      subject: "Your AI Readiness Checklist",
-      text: CHECKLIST_EMAIL_BODY,
-      html: CHECKLIST_EMAIL_HTML,
-    });
+    const pdfRes = await fetch(CHECKLIST_PDF_URL);
+    if (!pdfRes.ok) {
+      throw new Error(`Checklist PDF fetch failed (${pdfRes.status})`);
+    }
+    const pdfData = await pdfRes.arrayBuffer();
+
+    await sendMessage(
+      {
+        from: fromEmail,
+        to: name ? `${name} <${email}>` : email,
+        subject: "Your AI Readiness Checklist",
+        text: CHECKLIST_EMAIL_BODY,
+        html: CHECKLIST_EMAIL_HTML,
+      },
+      { filename: CHECKLIST_PDF_FILENAME, data: pdfData, contentType: "application/pdf" }
+    );
   } catch (err) {
     console.error("[subscribe] Mailgun checklist send failed:", err);
     return NextResponse.json(
