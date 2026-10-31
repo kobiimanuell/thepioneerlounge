@@ -25,8 +25,9 @@ import { NextResponse } from "next/server";
  * visitors) but nothing is actually sent, so don't rely on it collecting
  * real leads yet.
  *
- * The checklist email body below is placeholder copy. Swap
- * CHECKLIST_EMAIL_BODY for the real "AI Readiness Checklist" content
+ * The checklist email body below is placeholder copy. Swap both
+ * CHECKLIST_EMAIL_BODY (plain-text fallback) and the body passed into
+ * CHECKLIST_EMAIL_HTML for the real "AI Readiness Checklist" content
  * once it exists.
  */
 
@@ -37,6 +38,47 @@ const CHECKLIST_EMAIL_BODY = `Thanks for requesting the AI Readiness Checklist!
 If you have any questions in the meantime, just reply to this email.
 
 — The Pioneer Lounge`;
+
+/** Wraps a block of email-safe HTML in TPL's branded header/footer shell. */
+function brandedEmailHtml(bodyHtml: string): string {
+  return `<!DOCTYPE html>
+<html>
+  <body style="margin:0; padding:0; background-color:#faf8f3; font-family:Arial, Helvetica, sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#faf8f3; padding:32px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" style="max-width:480px; background-color:#ffffff; border-radius:16px; border:1px solid #ebe7dd;">
+            <tr>
+              <td style="padding:32px 32px 20px; text-align:center;">
+                <img src="https://thepioneerlounge.com/brand/logo/icon-mark-orange.png" width="40" height="40" alt="The Pioneer Lounge" style="display:block; margin:0 auto 10px; border:0;" />
+                <div style="font-size:14px; font-weight:600; color:#16140f; letter-spacing:-0.01em;">The Pioneer Lounge</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 32px 32px; color:#16140f; font-size:15px; line-height:1.6;">
+                ${bodyHtml}
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:20px 32px; border-top:1px solid #ebe7dd; text-align:center; font-size:12px; color:#625d53;">
+                The Pioneer Lounge &middot; <a href="https://thepioneerlounge.com" style="color:#f25c19; text-decoration:none;">thepioneerlounge.com</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
+
+const CHECKLIST_EMAIL_HTML = brandedEmailHtml(`
+  <h1 style="margin:0 0 16px; font-size:20px; font-weight:600; color:#16140f;">Your AI Readiness Checklist</h1>
+  <p style="margin:0 0 16px;">Thanks for requesting the AI Readiness Checklist!</p>
+  <p style="margin:0 0 16px; padding:16px; background:#f3f0e9; border-radius:8px; color:#625d53; font-style:italic;">(Placeholder: the real checklist content goes here once it's finalized.)</p>
+  <p style="margin:0 0 16px;">If you have any questions in the meantime, just reply to this email.</p>
+  <p style="margin:0; color:#625d53;">The Pioneer Lounge</p>
+`);
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
@@ -89,6 +131,7 @@ export async function POST(request: Request) {
       to: name ? `${name} <${email}>` : email,
       subject: "Your AI Readiness Checklist",
       text: CHECKLIST_EMAIL_BODY,
+      html: CHECKLIST_EMAIL_HTML,
     });
   } catch (err) {
     console.error("[subscribe] Mailgun checklist send failed:", err);
